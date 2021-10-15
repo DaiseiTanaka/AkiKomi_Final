@@ -39,14 +39,7 @@
                     <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="always" id="jOc-v5-kgP">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="lineweight" catalog="system" id="5fw-Rq-kwz">
                             <connections>
-                                <action selector="sideButton:" destination="BYZ-38-t0r" id="DF5-Ut-tXe"/>
-                                <segue destination="ANo-KF-Jkz" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="p8s-dM-gN0"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="rxk-Tn-JD7">
-                            <imageReference key="image" image="map" catalog="system" symbolScale="large"/>
-                            <connections>
-                                <action selector="reLoadButton:" destination="BYZ-38-t0r" id="aam-8t-m6t"/>
+                                <segue destination="ANo-KF-Jkz" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="zWk-XU-S2g"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -374,7 +367,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJ1-xA-Cbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42916" y="531"/>
+            <point key="canvasLocation" x="42916" y="530"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="9sf-Wr-T9k">
@@ -608,7 +601,6 @@
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="lineweight" catalog="system" width="128" height="110"/>
         <image name="logo_coa" width="945" height="430"/>
-        <image name="map" catalog="system" width="128" height="110"/>
         <image name="websiteKUAS2" width="1196" height="657"/>
         <image name="website_AkiKomi2" width="1297" height="605"/>
         <image name="website_akikomi" width="1258" height="624"/>

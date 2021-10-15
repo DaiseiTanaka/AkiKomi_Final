@@ -24,6 +24,8 @@ class menuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Feedbacker.impact(style: .medium)
+
         setUp()
         
     }

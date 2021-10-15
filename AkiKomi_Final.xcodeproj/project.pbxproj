@@ -176,8 +176,6 @@
 			children = (
 				35C46E71271042A80058E702 /* Supporting files */,
 				3560AC47271044A800571A27 /* TableViewCell */,
-				35C46E57271041430058E702 /* Assets.xcassets */,
-				35C46E1F27103F300058E702 /* Info.plist */,
 				3560AC452710447200571A27 /* TableView.swift */,
 				35C46E59271041890058E702 /* DetailsViewController.swift */,
 				35C46E5C271041890058E702 /* FirstViewController.swift */,
@@ -186,6 +184,8 @@
 				35C46E5D271041890058E702 /* menuViewController.swift */,
 				35C46E5A271041890058E702 /* RoomsData.swift */,
 				35C46E5E271041890058E702 /* SearchViewController.swift */,
+				35C46E57271041430058E702 /* Assets.xcassets */,
+				35C46E1F27103F300058E702 /* Info.plist */,
 			);
 			path = AkiKomi_Final;
 			sourceTree = "<group>";

@@ -62,10 +62,10 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //Feedbacker.impact(style: .medium)
+        Feedbacker.impact(style: .medium)
         
         let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell
-        print("I'm tapping the \(indexPath.item)")
+        //print("I'm tapping the \(indexPath.item)")
         self.cellDelegate?.collectionView(collectionviewcell: cell, index: indexPath.item, didTappedInTableViewCell: self)
     }
     

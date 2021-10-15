@@ -45,10 +45,6 @@ class TableView: UIViewController {
 
     }
     
-    @IBAction func sideButton(_ sender: Any) {
-        Feedbacker.impact(style: .medium)
-        
-    }
     
     @IBAction func reLoadButton(_ sender: Any) {
         Feedbacker.impact(style: .medium)
@@ -189,7 +185,7 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewcellid", for: indexPath) as? TableViewCell {
             // Show SubCategory Title
             let subCategoryTitle = colorsArray.objectsArray[indexPath.section].subcategory
-            cell.subCategoryLabel.text = subCategoryTitle[indexPath.row]  + "    (\(colorsArray.objectsArray[indexPath.section].subcategory.count))"
+            cell.subCategoryLabel.text = subCategoryTitle[indexPath.row]  //+ "    (\(colorsArray.objectsArray[indexPath.section].rooms.count))"
         
             // Pass the data to colletionview inside the tableviewcell
             let rowArray = colorsArray.objectsArray[indexPath.section].rooms[indexPath.row]
