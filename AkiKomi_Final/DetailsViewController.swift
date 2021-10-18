@@ -80,6 +80,8 @@ class DetailsViewController: UIViewController {
         self.capacityLabel.text = "Capacity:                " + String(numCapacity)
         
         self.desksLabel.text = "Desks:                     " + String(numDesks)
+        
+        self.monitorsLabel.text = "Monitors:                     " + String(numMonitors)
     
 
     }

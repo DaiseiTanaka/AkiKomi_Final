@@ -44,12 +44,8 @@ class TableView: UIViewController {
         setUpSearchBar()
 
     }
-    
-    
-    @IBAction func reLoadButton(_ sender: Any) {
-        Feedbacker.impact(style: .medium)
-        
 
+    @IBAction func goToSearch(_ sender: Any) {
     }
     
     private func setUpRefreshController() {
@@ -98,16 +94,17 @@ class TableView: UIViewController {
         // -MARK: Search Bar
         let searchBar = self.searchController.searchBar  // searchBarを取得
         searchBar.delegate = self
-//        //searchBar.scopeButtonTitles = ["contain all", "contain something"]  // Scopeボタンのタイトルを設定
-//        searchBar.becomeFirstResponder()
-//
+        //        //searchBar.scopeButtonTitles = ["contain all", "contain something"]  // Scopeボタンのタイトルを設定
+        //        searchBar.becomeFirstResponder()
+        //
         if #available(iOS 11.0, *){
             // iOS11以降は，UINavigationItemにSearchControllerを設定
             self.navigationItem.searchController = self.searchController
-
+            
             // trueだとスクロールした時にSearchBarを隠す（デフォルトはtrue）
             // falseだとスクロール位置に関係なく常にSearchBarが表示される
             self.navigationItem.hidesSearchBarWhenScrolling = true
+            
         }else{
             // iOS11より前は，tableHeaderViewにsearchBarを設定
             self.tableView.tableHeaderView = searchBar  // TableViewの一番上にsearchBarを設置
@@ -255,6 +252,7 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
             DestViewController.floorMap = tappedCell.floorMaps
             DestViewController.numCapacity = tappedCell.capacity
             DestViewController.numDesks = tappedCell.desks
+            DestViewController.numMonitors = tappedCell.monitors
             
             //MARK: - Set up MQTT
             let detailRoomClientID = tappedCell.name + String(ProcessInfo().processIdentifier)

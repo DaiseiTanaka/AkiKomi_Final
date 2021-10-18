@@ -17,5 +17,5 @@ struct CollectionViewCellModel {
     var capacity: Int
     var roomDetail: String
     var desks: Int
-    //var monitors: Int
+    var monitors: Int
 }
