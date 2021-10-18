@@ -70,18 +70,18 @@ class DetailsViewController: UIViewController {
         detailImageView.layer.cornerRadius = 10
         
         self.detailRoomDetail.text = roomDetailTextView
-        self.detailRoomDetail.layer.cornerRadius = 10
+        //self.detailRoomDetail.layer.cornerRadius = 10
         
         self.mapView.image = UIImage(named: floorMap)
         self.mapView.setupImageViewer()
         self.mapView.layer.cornerRadius = 10
 
         
-        self.capacityLabel.text = "Capacity:                " + String(numCapacity)
+        self.capacityLabel.text = String(numCapacity)
         
-        self.desksLabel.text = "Desks:                     " + String(numDesks)
+        self.desksLabel.text = String(numDesks)
         
-        self.monitorsLabel.text = "Monitors:                     " + String(numMonitors)
+        self.monitorsLabel.text = String(numMonitors)
     
 
     }
