@@ -193,29 +193,29 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
 
             cell.selectionStyle = .none
             
-            //圆角半径
+            //Fillet radius
             let cornerRadius: CGFloat = 15.0
             
-            //下面为设置圆角操作（通过遮罩实现）
+            //The following is to set the fillet operation (achieved by mask)
             let sectionCount = tableView.numberOfRows(inSection: indexPath.section)
             let shapeLayer = CAShapeLayer()
             cell.layer.mask = nil
-            //当前分区有多行数据时
+            //When there are multiple rows of data in the current partition
             if sectionCount > 1 {
                 switch indexPath.row {
-                    //如果是第一行,左上、右上角为圆角
+                    //If it is the first row, the upper left and upper right corners are rounded
                 case 0:
                     var bounds = cell.bounds
-                    bounds.origin.y += 1.0  //这样每一组首行顶部分割线不显示
+                    bounds.origin.y += 1.0  //In this way, the top dividing line of the first row of each group is not displayed
                     let bezierPath = UIBezierPath(roundedRect: bounds,
                                                   byRoundingCorners: [.topLeft,.topRight],
                                                   cornerRadii: CGSize(width: cornerRadius,height: cornerRadius))
                     shapeLayer.path = bezierPath.cgPath
                     cell.layer.mask = shapeLayer
-                    //如果是最后一行,左下、右下角为圆角
+                    //If it is the last line, the lower left and lower right corners are rounded
                 case sectionCount - 1:
                     var bounds = cell.bounds
-                    bounds.size.height -= 1.0  //这样每一组尾行底部分割线不显示
+                    bounds.size.height -= 1.0  //In this way, the bottom dividing line of each group of the last row is not displayed
                     let bezierPath = UIBezierPath(roundedRect: bounds,
                                                   byRoundingCorners: [.bottomLeft,.bottomRight],
                                                   cornerRadii: CGSize(width: cornerRadius,height: cornerRadius))
@@ -225,9 +225,9 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
                     break
                 }
             }
-            //当前分区只有一行行数据时
+            //When the current partition has only one row of data
             else {
-                //四个角都为圆角（同样设置偏移隐藏首、尾分隔线）
+                //All four corners are rounded (also set the offset to hide the first and last separation lines)
                 let bezierPath = UIBezierPath(roundedRect:
                                                 cell.bounds.insetBy(dx: 0.0, dy: 2.0),
                                               cornerRadius: cornerRadius)

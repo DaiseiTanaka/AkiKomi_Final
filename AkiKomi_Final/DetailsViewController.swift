@@ -51,6 +51,7 @@ class DetailsViewController: UIViewController {
         
         setUp()
         setUpObjectSize()
+        setUpAPI()
 
         NotificationCenter.default.addObserver(
                     self,
@@ -58,6 +59,27 @@ class DetailsViewController: UIViewController {
                     name: UIDevice.orientationDidChangeNotification,
                     object: nil)
         
+    }
+    
+    private func setUpAPI(){
+        let urlString = "http://localhost:5000/users"
+
+        guard let url = URLComponents(string: urlString) else { return }
+
+        // HTTPメソッドを実行
+        let task = URLSession.shared.dataTask(with: url.url!) {(data, response, error) in
+            if (error != nil) {
+                print(error!.localizedDescription)
+            }
+            guard let _data = data else { return }
+
+            // JSONデコード
+            let users = try! JSONDecoder().decode([User].self, from: _data)
+            for row in users {
+                print("firstname:\(row.firstname) lastname:\(row.lastName) age:\(row.age)")
+            }
+        }
+        task.resume()
     }
     
     private func setUp() {
@@ -121,3 +143,8 @@ class DetailsViewController: UIViewController {
 }
 
 
+struct User: Codable {
+    let firstname: String
+    let lastName: String
+    let age: Int
+}
