@@ -15,4 +15,16 @@ class WhatIsAkiKomi: UIViewController {
         
     }
     
+    @IBAction func instagram(_ sender: Any) {
+        let instagramHooks = "instagram://user?username=akikomi_official"
+        let instagramUrl = NSURL(string: instagramHooks)
+        if UIApplication.shared.canOpenURL(instagramUrl! as URL) {
+            UIApplication.shared.openURL(instagramUrl! as URL)
+        } else {
+          //redirect to safari because the user doesn't have Instagram
+            UIApplication.shared.openURL(NSURL(string: "http://instagram.com/")! as URL)
+            print("Can not find the account")
+        }
+    }
+
 }
