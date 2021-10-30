@@ -10,12 +10,8 @@ import Foundation
 import UIKit
 
 struct CollectionViewCellModel {
+    var category: String
     var floorMaps: String
     var name: String
     var imageName: String
-    var topic: String
-    var capacity: Int
-    var roomDetail: String
-    var desks: Int
-    var monitors: Int
 }

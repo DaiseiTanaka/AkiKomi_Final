@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MBCircularProgressBar
 import ImageViewer_swift
+import SwiftyJSON
 
 class DetailsViewController: UIViewController {
     
@@ -45,13 +46,16 @@ class DetailsViewController: UIViewController {
     @IBOutlet var desksLabel: UILabel!
     @IBOutlet var monitorsLabel: UILabel!
     
-        
+    @IBOutlet var apiLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUp()
         setUpObjectSize()
-        setUpAPI()
+        //setUpAPI()
+        //setUpAPI1()
+
 
         NotificationCenter.default.addObserver(
                     self,
@@ -61,6 +65,7 @@ class DetailsViewController: UIViewController {
         
     }
     
+    //MARK: - Set up API
     private func setUpAPI(){
         let urlString = "http://localhost:5000/users"
 
@@ -76,10 +81,50 @@ class DetailsViewController: UIViewController {
             // JSONデコード
             let users = try! JSONDecoder().decode([User].self, from: _data)
             for row in users {
-                print("firstname:\(row.firstname) lastname:\(row.lastName) age:\(row.age)")
+                print("------------From database-------------")
+                print("room name:\(row.roomName)")
+                print("room detail:\(row.roomDetail)")
+                print("topic:\(row.topic)")
+                print("capacity:\(row.capacity)")
+                print("desks:\(row.desks)")
+                print("monitors: \(row.monitors)")
             }
         }
         task.resume()
+    }
+    
+    // if let title = json["rooms"][0]["Library"]["roomName"].string {
+    //http://localhost:5000/users
+    
+    private func setUpAPI1() {
+        let url: URL = URL(string: "http://localhost:5000/users")! // URLの変更
+        let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
+            do  {
+                let couponDataArray = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any] //Any型にキャスト
+                let couponData = couponDataArray.map { (couponData) -> [String: Any] in
+                    return couponData as! [String: Any]
+                }
+                let rooms = couponData[0] as AnyObject?
+                let rooms2 = rooms?["rooms"] as AnyObject?
+                let library = rooms2?[0] as AnyObject?
+                let library2 = library?["Library"] as AnyObject?
+                let roomName = library2?[0] as AnyObject?
+                let roomName2 = roomName?["capacity"]
+                DispatchQueue.main.async {
+                    if roomName2 != nil {
+                        self.apiLabel.text = roomName2! as? String
+                    } else {
+                        print("nil")
+                    }
+                }
+                                
+            }
+            catch {
+                print(error)
+            }
+        })
+        task.resume()
+        
     }
     
     private func setUp() {
@@ -99,11 +144,11 @@ class DetailsViewController: UIViewController {
         self.mapView.layer.cornerRadius = 10
 
         
-        self.capacityLabel.text = String(numCapacity)
+        self.capacityLabel.text = String(numCapacity ?? 0)
         
-        self.desksLabel.text = String(numDesks)
+        self.desksLabel.text = String(numDesks ?? 0)
         
-        self.monitorsLabel.text = String(numMonitors)
+        self.monitorsLabel.text = String(numMonitors ?? 0)
     
 
     }
@@ -116,22 +161,22 @@ class DetailsViewController: UIViewController {
         if width < height {
             viewHeight.constant = (width - 20) * 0.6 + (width - 20) * 0.5 + 850
 
-            detailImageViewWidth.constant = width - 20
+            //detailImageViewWidth.constant = width - 20
             detailImageViewHeight.constant  = (width - 20) * 0.6
 
 
-            mapViewWidth.constant = width - 20
+//            mapViewWidth.constant = width - 20
             mapViewHeight.constant = (width - 20) * 0.5
 
         //horizonal
         } else {
             viewHeight.constant = 1050 + height * 0.8 + height - 50
 
-            detailImageViewHeight.constant  = height * 0.8
-            detailImageViewWidth.constant = (height * 0.8) * 1.67
+            detailImageViewHeight.constant  = height * 2/3
+            //detailImageViewWidth.constant = (height * 0.8) * 1.67
 
-            mapViewHeight.constant = height - 50
-            mapViewWidth.constant = (height - 50) * 2
+            mapViewHeight.constant = height * 2/3
+//            mapViewWidth.constant = width - 20
 
         }
     }
@@ -144,7 +189,10 @@ class DetailsViewController: UIViewController {
 
 
 struct User: Codable {
-    let firstname: String
-    let lastName: String
-    let age: Int
+    let roomName: String
+    let roomDetail: String
+    let topic: String
+    let capacity: Int
+    let desks: Int
+    let monitors: Int
 }

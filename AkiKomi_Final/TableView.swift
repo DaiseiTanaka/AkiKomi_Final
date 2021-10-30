@@ -16,11 +16,11 @@ class TableView: UIViewController {
     var colorsArray = RoomData()
     var tappedCell: CollectionViewCellModel!
     var rowWithColors: [CollectionViewCellModel]?
-
+    
     
     
     var searchController = UISearchController(searchResultsController: nil)
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +36,15 @@ class TableView: UIViewController {
         // Register the xib for tableview cell
         let cellNib = UINib(nibName: "TableViewCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: "tableviewcellid")
-
+        
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setUpSearchBar()
-
+        //setUpSearchBar()
+        
     }
-
+    
     @IBAction func goToSearch(_ sender: Any) {
     }
     
@@ -72,12 +72,12 @@ class TableView: UIViewController {
         mySegment.setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont(name: "HiraKakuProN-W6", size: 11.0)!,
             NSAttributedString.Key.foregroundColor: UIColor(red: 0.50, green: 0.49, blue: 0.62, alpha: 1.0)
-            ], for: .selected)
+        ], for: .selected)
         // セグメントのフォントと文字色の設定
         mySegment.setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont(name: "HiraKakuProN-W3", size: 11.0)!,
             NSAttributedString.Key.foregroundColor: UIColor(red: 0.30, green: 0.49, blue: 0.62, alpha: 1.0)
-            ], for: .normal)
+        ], for: .normal)
         // セグメントの選択
         mySegment.selectedSegmentIndex = 0
         // セグメントが変更された時に呼び出すメソッドの設定
@@ -180,17 +180,56 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewcellid", for: indexPath) as? TableViewCell {
+            
+            //MARK: - API section
+            let url: URL = URL(string: "http://localhost:5000/users")! // URLの変更
+            let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
+                do  {
+                    let roomDataArray = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any] //Any型にキャスト
+                    let roomData = roomDataArray.map { (roomData) -> [String: Any] in
+                        return roomData as! [String: Any]
+                    }
+                    let Building = roomData[0] as AnyObject?
+                    let Building2 = Building?["South Building"] as AnyObject?
+                    let Rooms = Building2?[0] as AnyObject?
+                    //                    let Rooms2 = Rooms?["rooms"] as AnyObject?
+                    //                    let Category = Rooms2?[0] as AnyObject?
+                    //                    let Category2 = Category?[indexPath.row] as AnyObject?
+                    //                    let Room = Category2?[0] as AnyObject?
+                    //                    let Room2 = Room?[indexPath.section] as AnyObject?
+                    //                    let selectedRoom = Room2?[0] as AnyObject?
+                    
+                    let SubCategory = Rooms?["subcategory"] as AnyObject?
+                    let subCategoryTitle = SubCategory?[indexPath.row] as AnyObject?
+                    
+                    DispatchQueue.main.async {
+                        if SubCategory != nil {
+                            cell.subCategoryLabel.text = subCategoryTitle! as? String
+                        } else {
+                            cell.subCategoryLabel.text = "nil"
+                        }
+                    }
+                }
+                
+                catch {
+                    cell.subCategoryLabel.text = "nil"
+                    print(error)
+                }
+            })
+            task.resume()
+            
+            
             // Show SubCategory Title
-            let subCategoryTitle = colorsArray.objectsArray[indexPath.section].subcategory
-            cell.subCategoryLabel.text = subCategoryTitle[indexPath.row]  //+ "    (\(colorsArray.objectsArray[indexPath.section].rooms.count))"
-        
+            //let subCategoryTitle = colorsArray.objectsArray[indexPath.section].subcategory
+            //cell.subCategoryLabel.text = subCategoryTitle[indexPath.row]  //+ "    (\(colorsArray.objectsArray[indexPath.section].rooms.count))"
+            
             // Pass the data to colletionview inside the tableviewcell
             let rowArray = colorsArray.objectsArray[indexPath.section].rooms[indexPath.row]
             cell.updateCellWith(row: rowArray)
             
             // Set cell's delegate
             cell.cellDelegate = self
-
+            
             cell.selectionStyle = .none
             
             //Fillet radius
@@ -240,74 +279,128 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
-
+    
     //MARK: - Set up Detail View
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailsviewcontrollerseg" {
             let DestViewController = segue.destination as! DetailsViewController
             
-            DestViewController.roomName = tappedCell.name
-            DestViewController.detailImageViewName = tappedCell.imageName
-            DestViewController.roomDetailTextView = tappedCell.roomDetail
-            DestViewController.floorMap = tappedCell.floorMaps
-            DestViewController.numCapacity = tappedCell.capacity
-            DestViewController.numDesks = tappedCell.desks
-            DestViewController.numMonitors = tappedCell.monitors
-            
-            //MARK: - Set up MQTT
-            let detailRoomClientID = tappedCell.name + String(ProcessInfo().processIdentifier)
-            
-            let roomMqtt = CocoaMQTT(clientID: detailRoomClientID, host: "192.168.1.111", port: 1883)
-            roomMqtt.autoReconnect = true
-            _ = roomMqtt.connect()
-            roomMqtt.didConnectAck = { mqtt, ack in
-                roomMqtt.subscribe(self.tappedCell.topic)
-                roomMqtt.didReceiveMessage = { mqtt, message, id in
-                    let number: Int = Int(message.string!) ?? 1
-                    let percentage = Int(number * 100 / Int(self.tappedCell.capacity))
-
-                    UIView.animate(withDuration: 1.0) {
-                        DestViewController.detailCircle.value = CGFloat(percentage)
+            // API section
+            let url: URL = URL(string: "http://localhost:5000/users")! // URLの変更
+            let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
+                do  {
+                    let roomDataArray = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any] //Any型にキャスト
+                    let roomData = roomDataArray.map { (roomData) -> [String: Any] in
+                        return roomData as! [String: Any]
                     }
-                    DestViewController.detailPercentLabel.text = "\(String(percentage))%"
-                    DestViewController.detailNumberLabel.text = "There are \(message.string!) people in the room."
+                    let Building = roomData[0] as AnyObject?
+                    let Building2 = Building?["South Building"] as AnyObject?
+                    let Rooms = Building2?[0] as AnyObject?
+                    let Rooms2 = Rooms?["rooms"] as AnyObject?
+                    let Category = Rooms2?[0] as AnyObject?
+                    let Category2 = Category?[self.tappedCell.category] as AnyObject?
+                    let Room = Category2?[0] as AnyObject?
+                    let Room2 = Room?[self.tappedCell.name] as AnyObject?
+                    let selectedRoom = Room2?[0] as AnyObject?
                     
-                    //change font and color
-                    if percentage > 100 {
-                        DestViewController.detailCircle.progressColor = .purple
-                        DestViewController.detailCircle.maxValue = CGFloat(percentage)
-                        DestViewController.detailAllartLabel.text = "The capacity of this room has been exceeded. Please move to another room now."
-                        DestViewController.detailAllartLabel.textColor = .red
-                        
-                    } else if percentage > 80  {
-                        DestViewController.detailCircle.progressColor = .red
-                        DestViewController.detailAllartLabel.text = " "
-                        DestViewController.detailCircle.maxValue = 100
-                        
-                    } else if percentage > 60  {
-                        DestViewController.detailCircle.progressColor = .orange
-                        DestViewController.detailAllartLabel.text = " "
-                        DestViewController.detailCircle.maxValue = 100
-                        
-                    } else if percentage > 40  {
-                        DestViewController.detailCircle.progressColor = .yellow
-                        DestViewController.detailAllartLabel.text = " "
-                        DestViewController.detailCircle.maxValue = 100
-                        
-                    } else if percentage > 20  {
-                        DestViewController.detailCircle.progressColor = .green
-                        DestViewController.detailAllartLabel.text = " "
-                        DestViewController.detailCircle.maxValue = 100
-                        
+                    let roomName = selectedRoom?["roomName"]
+                    let roomDetail = selectedRoom?["roomDetail"]
+                    let capacity = selectedRoom?["capacity"]
+                    let desks = selectedRoom?["desks"]
+                    let monitors = selectedRoom?["monitors"]
+                    
+                    if roomName != nil {
+                        DestViewController.roomName = roomName! as? String
+                        DestViewController.roomDetailTextView = roomDetail! as? String
+                        print(roomName! as? String ?? "nil")
                     } else {
-                        DestViewController.detailCircle.progressColor = .systemTeal
-                        DestViewController.detailAllartLabel.text = " "
-                        DestViewController.detailCircle.maxValue = 100
-
+                        DestViewController.roomName = "nil"
+                        DestViewController.roomDetailTextView = "nil"
                     }
+                    
+                    if capacity != nil {
+                        DestViewController.numCapacity = capacity! as? Int
+                        DestViewController.numDesks = desks! as? Int
+                        DestViewController.numMonitors = monitors! as? Int
+                    } else {
+                        DestViewController.numCapacity = 0
+                        DestViewController.numDesks = 0
+                        DestViewController.numMonitors = 0
+                    }
+                    
+                    //MARK: - Set up MQTT
+                    let detailRoomClientID = self.tappedCell.name + String(ProcessInfo().processIdentifier)
+                    
+                    let roomMqtt = CocoaMQTT(clientID: detailRoomClientID, host: "192.168.1.111", port: 1883)
+                    roomMqtt.autoReconnect = true
+                    _ = roomMqtt.connect()
+                    roomMqtt.didConnectAck = { mqtt, ack in
+                        let topic = selectedRoom?["topic"]! as? String
+                        roomMqtt.subscribe(topic ?? "topic_slibrary")
+                        roomMqtt.didReceiveMessage = { mqtt, message, id in
+                            let number: Int = Int(message.string!) ?? 1
+                            let capacity = selectedRoom?["capacity"]! as? Int
+                            let percentage = Int(number * 100 / (capacity ?? 1))
+                            
+                            UIView.animate(withDuration: 1.0) {
+                                DestViewController.detailCircle.value = CGFloat(percentage)
+                            }
+                            DestViewController.detailPercentLabel.text = "\(String(percentage))%"
+                            DestViewController.detailNumberLabel.text = "There are \(message.string!) people in the room."
+                            
+                            //change font and color
+                            if percentage > 100 {
+                                DestViewController.detailCircle.progressColor = .purple
+                                DestViewController.detailCircle.maxValue = CGFloat(percentage)
+                                DestViewController.detailAllartLabel.text = "The capacity of this room has been exceeded. Please move to another room now."
+                                DestViewController.detailAllartLabel.textColor = .red
+                                
+                            } else if percentage > 80  {
+                                DestViewController.detailCircle.progressColor = .red
+                                DestViewController.detailAllartLabel.text = " "
+                                DestViewController.detailCircle.maxValue = 100
+                                
+                            } else if percentage > 60  {
+                                DestViewController.detailCircle.progressColor = .orange
+                                DestViewController.detailAllartLabel.text = " "
+                                DestViewController.detailCircle.maxValue = 100
+                                
+                            } else if percentage > 40  {
+                                DestViewController.detailCircle.progressColor = .yellow
+                                DestViewController.detailAllartLabel.text = " "
+                                DestViewController.detailCircle.maxValue = 100
+                                
+                            } else if percentage > 20  {
+                                DestViewController.detailCircle.progressColor = .green
+                                DestViewController.detailAllartLabel.text = " "
+                                DestViewController.detailCircle.maxValue = 100
+                                
+                            } else {
+                                DestViewController.detailCircle.progressColor = .systemTeal
+                                DestViewController.detailAllartLabel.text = " "
+                                DestViewController.detailCircle.maxValue = 100
+                                
+                            }
+                        }
+                    }
+                    
                 }
-            }
+                catch {
+                    DestViewController.roomName = "nil"
+                    DestViewController.roomDetailTextView = "nil"
+                    print(error)
+                }
+            })
+            task.resume()
             
+            //DestViewController.roomName = tappedCell.name
+            DestViewController.detailImageViewName = tappedCell.imageName
+            //DestViewController.roomDetailTextView = tappedCell.roomDetail
+            DestViewController.floorMap = tappedCell.floorMaps
+            //DestViewController.numCapacity = tappedCell.capacity
+            //DestViewController.numDesks = tappedCell.desks
+            //DestViewController.numMonitors = tappedCell.monitors
+
         }
     }
 }

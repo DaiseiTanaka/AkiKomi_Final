@@ -9,6 +9,7 @@ target 'AkiKomi_Final' do
   pod 'CocoaMQTT'
   pod 'MBCircularProgressBar'
   pod 'ImageViewer.swift', '~> 3.0'
+  pod 'SwiftyJSON', '~> 4.0'
 
   target 'AkiKomi_FinalTests' do
     inherit! :search_paths

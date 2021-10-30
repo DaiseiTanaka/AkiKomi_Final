@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3402D84BF5204060B3C6F5F8 /* Pods_AkiKomi_FinalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C1CF6F390AA06825794FD9 /* Pods_AkiKomi_FinalTests.framework */; };
+		35268E2F272D3FED002047C8 /* WhatIsAkiKomi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35268E2E272D3FEC002047C8 /* WhatIsAkiKomi.swift */; };
 		3560AC3C2710440600571A27 /* TableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AC392710440600571A27 /* TableViewCellModel.swift */; };
 		3560AC3D2710440600571A27 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3560AC3A2710440600571A27 /* TableViewCell.xib */; };
 		3560AC3E2710440600571A27 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AC3B2710440600571A27 /* TableViewCell.swift */; };
@@ -57,6 +58,7 @@
 		080F2707B41D9378A0AB7A27 /* Pods-AkiKomi_Final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AkiKomi_Final.release.xcconfig"; path = "Target Support Files/Pods-AkiKomi_Final/Pods-AkiKomi_Final.release.xcconfig"; sourceTree = "<group>"; };
 		21C1CF6F390AA06825794FD9 /* Pods_AkiKomi_FinalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AkiKomi_FinalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D94F1F08D20FDB0485F835 /* Pods-AkiKomi_Final-AkiKomi_FinalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AkiKomi_Final-AkiKomi_FinalUITests.debug.xcconfig"; path = "Target Support Files/Pods-AkiKomi_Final-AkiKomi_FinalUITests/Pods-AkiKomi_Final-AkiKomi_FinalUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		35268E2E272D3FEC002047C8 /* WhatIsAkiKomi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIsAkiKomi.swift; sourceTree = "<group>"; };
 		3560AC392710440600571A27 /* TableViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellModel.swift; sourceTree = "<group>"; };
 		3560AC3A2710440600571A27 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		3560AC3B2710440600571A27 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				35C46E5D271041890058E702 /* menuViewController.swift */,
 				35C46E5A271041890058E702 /* RoomsData.swift */,
 				35C46E5E271041890058E702 /* SearchViewController.swift */,
+				35268E2E272D3FEC002047C8 /* WhatIsAkiKomi.swift */,
 				35C46E57271041430058E702 /* Assets.xcassets */,
 				35C46E1F27103F300058E702 /* Info.plist */,
 				35F5A4762719926A00976176 /* test.json */,
@@ -501,6 +504,7 @@
 				35C46E1427103F2E0058E702 /* SceneDelegate.swift in Sources */,
 				35C46E64271041890058E702 /* menuViewController.swift in Sources */,
 				35C46E60271041890058E702 /* DetailsViewController.swift in Sources */,
+				35268E2F272D3FED002047C8 /* WhatIsAkiKomi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
