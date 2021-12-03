@@ -661,7 +661,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AF7036870D1F67E779745955 /* Pods-AkiKomi_Final.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -691,7 +690,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 080F2707B41D9378A0AB7A27 /* Pods-AkiKomi_Final.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

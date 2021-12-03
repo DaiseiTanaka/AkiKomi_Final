@@ -21,7 +21,7 @@ class TableViewCell: UITableViewCell {
     weak var cellDelegate: CollectionViewCellDelegate?
     
     var rowWithColors: [CollectionViewCellModel]?
-
+    
     
     @IBOutlet var subCategoryLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
@@ -83,84 +83,98 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
             //cell.colorView.backgroundColor = self.rowWithColors?[indexPath.item].color ?? UIColor.black
             
             //MARK: - API section
-            let url: URL = URL(string: "http://localhost:5000/users")! // URLの変更
+            let url: URL = URL(string: "http://192.168.1.111:5000/users")! // URLの変更
             let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
                 do  {
-                    let roomDataArray = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any] //Any型にキャスト
-                    let roomData = roomDataArray.map { (roomData) -> [String: Any] in
-                        return roomData as! [String: Any]
-                    }
-                    let Building = roomData[0] as AnyObject?
-                    let Building2 = Building?["South Building"] as AnyObject?
-                    let Rooms = Building2?[0] as AnyObject?
-                    let Rooms2 = Rooms?["rooms"] as AnyObject?
-                    let Category = Rooms2?[0] as AnyObject?
-                    let Category2 = Category?[self.rowWithColors?[indexPath.item].category ?? "Library"] as AnyObject?
-                    let Room = Category2?[0] as AnyObject?
-                    let Room2 = Room?[self.rowWithColors?[indexPath.item].name ?? "South Library"] as AnyObject?
-                    let selectedRoom = Room2?[0] as AnyObject?
-                    
-                    let roomName = selectedRoom?["roomName"]
-                    
-                    DispatchQueue.main.async {
-                        if roomName != nil {
-                            cell.nameLabel.text = roomName! as? String
-                        } else {
-                            cell.nameLabel.text = "nil"
+                    if data == nil {
+                        DispatchQueue.main.async {
+                            
+                            cell.nameLabel.text = self.rowWithColors?[indexPath.item].name ?? ""
                         }
                     }
                     
-                    //MARK: - Set up MQTT
-                    let clientID = String(self.rowWithColors?[indexPath.item].imageName ?? "connected_error!!") + String(ProcessInfo().processIdentifier)
-                                
-                    let roomMqtt = CocoaMQTT(clientID: clientID, host: "192.168.1.111", port: 1883)
-                    roomMqtt.autoReconnect = true
-                    _ = roomMqtt.connect()
-                    roomMqtt.didConnectAck = { mqtt, ack in
-                        let topic = selectedRoom?["topic"]! as? String
-                        roomMqtt.subscribe(topic ?? "topic_slibrary")
-                        roomMqtt.didReceiveMessage = { mqtt, message, id in
-                            
-                            let number: Int = Int(message.string!) ?? 1
-                            let capacity = selectedRoom?["capacity"]! as? Int
-                            let percentage = Int(number * 100 / (capacity ?? 1))
-
-                            UIView.animate(withDuration: 1.0) {
-                                cell.miniCircle.value = CGFloat(percentage)
-                            }
-                            cell.percentageLabel.text = "\(String(percentage))%"
-                            
-                            //change font and color
-                            if percentage > 100 {
-                                cell.miniCircle.progressColor = .purple
-                                cell.miniCircle.maxValue = CGFloat(percentage)
-                                
-                            } else if percentage > 80  {
-                                cell.miniCircle.progressColor = .red
-                                cell.miniCircle.maxValue = 100
-                                
-                            } else if percentage > 60  {
-                                cell.miniCircle.progressColor = .orange
-                                cell.miniCircle.maxValue = 100
-
-                            } else if percentage > 40  {
-                                cell.miniCircle.progressColor = .yellow
-                                cell.miniCircle.maxValue = 100
-                                
-                            } else if percentage > 20  {
-                                cell.miniCircle.progressColor = .green
-                                cell.miniCircle.maxValue = 100
-                                
+                    else {
+                        let roomDataArray = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any] //Any型にキャスト
+                        let roomData = roomDataArray.map { (roomData) -> [String: Any] in
+                            return roomData as! [String: Any]
+                        }
+                        let Building = roomData[0] as AnyObject?
+                        let Building2 = Building?["South Building"] as AnyObject?
+                        let Rooms = Building2?[0] as AnyObject?
+                        let Rooms2 = Rooms?["rooms"] as AnyObject?
+                        let Category = Rooms2?[0] as AnyObject?
+                        let Category2 = Category?[self.rowWithColors?[indexPath.item].category ?? "Library"] as AnyObject?
+                        let Room = Category2?[0] as AnyObject?
+                        let Room2 = Room?[self.rowWithColors?[indexPath.item].name ?? "South Library"] as AnyObject?
+                        let selectedRoom = Room2?[0] as AnyObject?
+                        
+                        let roomName = selectedRoom?["roomName"]
+                        DispatchQueue.main.async {
+                            if roomName != nil {
+                                cell.nameLabel.text = roomName! as? String
                             } else {
-                                cell.miniCircle.progressColor = .systemTeal
-                                cell.miniCircle.maxValue = 100
-
+                                cell.nameLabel.text = "connecting ..."
                             }
                         }
+                        
+                        //MARK: - Set up MQTT
+                        let clientID = String(self.rowWithColors?[indexPath.item].imageName ?? "connected_error!!") + String(ProcessInfo().processIdentifier)
+                        
+                        let hostmqttKUAS = "172.31.32.141"
+                        let hostmqttEWS = "192.168.1.111"
+                        let roomMqtt = CocoaMQTT(clientID: clientID, host: hostmqttEWS, port: 1883)
+                        roomMqtt.autoReconnect = true
+                        _ = roomMqtt.connect()
+                        roomMqtt.didConnectAck = { mqtt, ack in
+                            let topic = selectedRoom?["topic"]! as? String
+                            roomMqtt.subscribe(topic ?? "topic_aadvanced")
+                            roomMqtt.didReceiveMessage = { mqtt, message, id in
+                                
+                                let number: Int = Int(message.string!) ?? 1
+                                let capacity = selectedRoom?["capacity"]! as? Int
+                                let percentage = Int(number * 100 / (capacity ?? 1))
+                                
+                                UIView.animate(withDuration: 1.0) {
+                                    cell.miniCircle.value = CGFloat(percentage)
+                                }
+                                cell.percentageLabel.text = "\(String(percentage))%"
+                                
+                                //change font and color
+                                if percentage > 100 {
+                                    cell.miniCircle.progressColor = .purple
+                                    cell.miniCircle.maxValue = CGFloat(percentage)
+                                    
+                                } else if percentage > 80  {
+                                    cell.miniCircle.progressColor = .red
+                                    cell.miniCircle.maxValue = 100
+                                    
+                                } else if percentage > 60  {
+                                    cell.miniCircle.progressColor = .orange
+                                    cell.miniCircle.maxValue = 100
+                                    
+                                } else if percentage > 40  {
+                                    cell.miniCircle.progressColor = .yellow
+                                    cell.miniCircle.maxValue = 100
+                                    
+                                } else if percentage > 20  {
+                                    cell.miniCircle.progressColor = .green
+                                    cell.miniCircle.maxValue = 100
+                                    
+                                } else {
+                                    cell.miniCircle.progressColor = .systemTeal
+                                    cell.miniCircle.maxValue = 100
+                                    
+                                }
+                            }
+                        }
+                        
                     }
+                    
+                    
+                    
                 }
                 catch {
-                    cell.nameLabel.text = self.rowWithColors?[indexPath.item].name ?? ""
+                    cell.nameLabel.text = self.rowWithColors?[indexPath.item].name ?? "Connecting..."
                     print(error)
                 }
             })

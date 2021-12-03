@@ -19,8 +19,8 @@ class menuViewController: UIViewController {
     @IBOutlet var akikomiImage1: UIImageView!
     @IBOutlet var kuasImage1: UIImageView!
     
-    @IBOutlet var soonCommingView: UIView!
-    
+    @IBOutlet var webbutton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,13 +29,18 @@ class menuViewController: UIViewController {
         setUp()
         
     }
+    @IBAction func tappWeb(_ sender: Any) {
+        let url = URL(string: "https://dtnk4448.wixsite.com/akikomi")!
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+    }
     
     private func setUp() {
         akikomiWebView.layer.cornerRadius = 10
         kuasWebView.layer.cornerRadius = 10
         akikomiImage1.layer.cornerRadius = 10
         kuasImage1.layer.cornerRadius = 10
-        soonCommingView.layer.cornerRadius = 10
     }
     
     @IBAction func seeKUASWeb(_ sender: Any) {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MRT-Zg-Bwy">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -48,17 +48,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e1p-Po-LxP">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="e1p-Po-LxP">
                                                 <rect key="frame" x="20" y="89.5" width="374" height="280"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="374" id="WSc-l6-QiA"/>
                                                     <constraint firstAttribute="height" constant="280" id="yTa-MG-p2Z"/>
                                                 </constraints>
-                                                <mutableString key="text">   Coronavirus has changed our lives dramatically over a very short period of time. It forces people to stay apart and keep certain distance from each other. People are encouraged to avoid 3Cs-closed space, crowded place, and close contact. In universities and workplaces, rooms are only allowed to be occupied by up to 50% of their capacities. Nevertheless, there are often many rooms in an organization, making it extremely difficult for people to keep tracking the vacancies of all rooms by themselves. For example, the Kyoto University of Advanced Science (KUAS) holds at least 70 rooms in regular use. As a result, students may have to spend a lot of time searching for available study rooms on campus. Similar problem also exists in workplaces where office workers may have to waste time to look for available meeting rooms.
+                                                <string key="text">   Coronavirus has changed our lives dramatically over a very short period of time. It forces people to stay apart and keep certain distance from each other. People are encouraged to avoid 3Cs-closed space, crowded place, and close contact. In universities and workplaces, rooms are only allowed to be occupied by up to 50% of their capacities. Nevertheless, there are often many rooms in an organization, making it extremely difficult for people to keep tracking the vacancies of all rooms by themselves. For example, the Kyoto University of Advanced Science (KUAS) holds at least 70 rooms in regular use. As a result, students may have to spend a lot of time searching for available study rooms on campus. Similar problem also exists in workplaces where office workers may have to waste time to look for available meeting rooms.
     Our mission at AkiKomi is to provide quick and reliable data of room occupancy to everyone by exploiting our sensors and mobile application. We are aiming not only to support elimination strategy of prevalent global epidemic but prevention of forthcoming epidemic.  
-We believe this mission is indispensable because epidemic is hardly predictable, and its threat is formidable. Utilizing our technology enable us to handle them instantaneously and has potential to become a powerful tool for saving people’s lives. 
-    We will continue to develop our technology to provide comfortable environment and improve the sense of safety in people’s daily life.</mutableString>
+    We believe this mission is indispensable because epidemic is hardly predictable, and its threat is formidable. Utilizing our technology enable us to handle them instantaneously and has potential to become a powerful tool for saving people’s lives. 
+    We will continue to develop our technology to provide comfortable environment and improve the sense of safety in people’s daily life.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -121,7 +121,7 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                                     <constraint firstItem="gAx-Iy-MS5" firstAttribute="height" secondItem="dbZ-AF-SZn" secondAttribute="height" id="yNL-0G-yfO"/>
                                                 </constraints>
                                             </scrollView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="・Instagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVN-Eq-CgR">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="・SNS  Instagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVN-Eq-CgR">
                                                 <rect key="frame" x="36" y="668" width="200" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="axJ-0F-COG"/>
@@ -130,7 +130,7 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We usually upload project progress. Please follow us! Tap the QR code!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEf-9z-b0M">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We usually upload project progress. Please follow us! Tap the QR code!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEf-9z-b0M">
                                                 <rect key="frame" x="45.5" y="690.5" width="323" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="PZW-an-R0b"/>
@@ -156,7 +156,7 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" If you have any comment or request, do not hesitate to email of DM for us." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QG5-tN-5Oc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" If you have any comment or request, do not hesitate to email or DM for us." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QG5-tN-5Oc">
                                                 <rect key="frame" x="45.5" y="1021" width="323" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="He3-aV-O6C"/>
@@ -178,7 +178,7 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flM-it-A5i">
-                                                <rect key="frame" x="102" y="743" width="209" height="225"/>
+                                                <rect key="frame" x="102.5" y="743" width="209" height="225"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="209" id="7qe-pa-Pso"/>
                                                     <constraint firstAttribute="height" constant="225" id="TqM-Id-NMw"/>
@@ -189,12 +189,23 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                                     <action selector="instagram:" destination="nuc-ak-62w" eventType="touchUpInside" id="njB-RU-h14"/>
                                                 </connections>
                                             </button>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STW-QI-ubl">
+                                                <rect key="frame" x="345" y="60" width="45" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="QfB-8R-Phz"/>
+                                                    <constraint firstAttribute="width" constant="43" id="s1t-bn-vLb"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="changeLanguage:" destination="nuc-ak-62w" eventType="valueChanged" id="uAq-4h-lDn"/>
+                                                </connections>
+                                            </switch>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="ESG-Xt-AL4" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="36" id="1Zq-9D-mUo"/>
                                             <constraint firstItem="SVN-Eq-CgR" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="36" id="1tN-If-uVz"/>
                                             <constraint firstItem="flM-it-A5i" firstAttribute="centerX" secondItem="OyP-aS-jyT" secondAttribute="centerX" id="4UB-GS-M0n"/>
+                                            <constraint firstItem="e1p-Po-LxP" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="20" id="7lY-un-dIW"/>
                                             <constraint firstItem="e1p-Po-LxP" firstAttribute="centerX" secondItem="OyP-aS-jyT" secondAttribute="centerX" id="8xY-Fm-sEl"/>
                                             <constraint firstItem="teg-Bl-Daz" firstAttribute="top" secondItem="e1p-Po-LxP" secondAttribute="bottom" constant="20" id="9V2-tJ-FFW"/>
                                             <constraint firstItem="QG5-tN-5Oc" firstAttribute="centerX" secondItem="OyP-aS-jyT" secondAttribute="centerX" id="BeJ-Jm-7Sa"/>
@@ -211,11 +222,16 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                             <constraint firstItem="aKp-c7-wX5" firstAttribute="top" secondItem="QEf-9z-b0M" secondAttribute="bottom" constant="2" id="dgR-Sk-Irk"/>
                                             <constraint firstItem="aKp-c7-wX5" firstAttribute="centerX" secondItem="OyP-aS-jyT" secondAttribute="centerX" id="eAA-dc-8q3"/>
                                             <constraint firstItem="flM-it-A5i" firstAttribute="top" secondItem="QEf-9z-b0M" secondAttribute="bottom" constant="7.5" id="eXW-A0-OGJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="dbZ-AF-SZn" secondAttribute="trailing" constant="18" id="eiS-Rq-oHh"/>
                                             <constraint firstItem="SVN-Eq-CgR" firstAttribute="top" secondItem="dbZ-AF-SZn" secondAttribute="bottom" constant="20" id="fpj-sb-ja7"/>
+                                            <constraint firstItem="e1p-Po-LxP" firstAttribute="top" secondItem="STW-QI-ubl" secondAttribute="bottom" constant="1.5" id="fsM-bs-78y"/>
+                                            <constraint firstItem="dbZ-AF-SZn" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="18" id="hJQ-TZ-imk"/>
                                             <constraint firstItem="e1p-Po-LxP" firstAttribute="top" secondItem="ESG-Xt-AL4" secondAttribute="bottom" constant="4" id="lY9-dB-Xcy"/>
                                             <constraint firstItem="dbZ-AF-SZn" firstAttribute="top" secondItem="teg-Bl-Daz" secondAttribute="bottom" constant="8" id="m2P-aP-P0h"/>
+                                            <constraint firstAttribute="trailing" secondItem="e1p-Po-LxP" secondAttribute="trailing" constant="20" id="ocZ-zU-uc3"/>
                                             <constraint firstItem="Ktl-ZO-SJk" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="20" id="qIv-El-TkK"/>
                                             <constraint firstItem="QEf-9z-b0M" firstAttribute="top" secondItem="SVN-Eq-CgR" secondAttribute="bottom" constant="2" id="vjq-XZ-xYr"/>
+                                            <constraint firstAttribute="trailing" secondItem="STW-QI-ubl" secondAttribute="trailing" constant="26" id="vy6-HL-ll1"/>
                                             <constraint firstItem="ZgF-Tq-4fZ" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="36" id="wGF-G2-ERT"/>
                                             <constraint firstItem="ESG-Xt-AL4" firstAttribute="top" secondItem="Ktl-ZO-SJk" secondAttribute="bottom" constant="8" id="xZ9-Xa-SYJ"/>
                                         </constraints>
@@ -239,6 +255,12 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                             <constraint firstItem="zd2-qh-O8v" firstAttribute="trailing" secondItem="KTy-B5-Pnd" secondAttribute="trailing" id="rD6-eo-ssH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="missionStatement" destination="e1p-Po-LxP" id="TYg-t0-q7P"/>
+                        <outlet property="scrollViewHeight" destination="YRw-cx-C9i" id="ang-Jb-Mbb"/>
+                        <outlet property="scrollViewWidth" destination="A6N-yZ-xhG" id="s9z-dV-teU"/>
+                        <outlet property="stackViewWidth" destination="0up-dT-0bd" id="Tjb-Mn-wef"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JqT-1X-Z0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -291,7 +313,7 @@ We believe this mission is indispensable because epidemic is hardly predictable,
             </objects>
             <point key="canvasLocation" x="43826" y="-310"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Connecting...-->
         <scene sceneID="wuU-nb-9HJ">
             <objects>
                 <viewController id="iL5-nq-XnG" customClass="DetailsViewController" customModule="AkiKomi_Final" customModuleProvider="target" sceneMemberID="viewController">
@@ -303,7 +325,7 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1520"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvq-v2-Zar">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1330"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sQT-rQ-TdL">
                                                 <rect key="frame" x="12" y="8" width="390" height="242"/>
@@ -377,12 +399,12 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0J5-0x-0gT">
-                                                <rect key="frame" x="10" y="332" width="394" height="49"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0J5-0x-0gT">
+                                                <rect key="frame" x="10" y="332" width="394" height="65"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="394" id="7Y4-yY-baq"/>
-                                                    <constraint firstAttribute="height" constant="49" id="GjE-US-BEq"/>
+                                                    <constraint firstAttribute="height" constant="65" id="GjE-US-BEq"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -453,7 +475,7 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="connecting.." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7e-aQ-DbX">
-                                                <rect key="frame" x="97" y="1271" width="220" height="22"/>
+                                                <rect key="frame" x="97" y="1275" width="220" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="iHm-de-Vc4"/>
                                                     <constraint firstAttribute="width" constant="220" id="qFB-us-MO0"/>
@@ -483,7 +505,7 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monitors:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lky-AJ-3CD">
-                                                <rect key="frame" x="97" y="1270" width="220" height="23"/>
+                                                <rect key="frame" x="97" y="1275" width="220" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="220" id="0Hy-fF-909"/>
                                                     <constraint firstAttribute="height" constant="23" id="vkX-a2-Bmc"/>
@@ -501,8 +523,9 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                             <constraint firstItem="d2f-Mh-eYM" firstAttribute="centerX" secondItem="Cvq-v2-Zar" secondAttribute="centerX" id="4Ry-my-4aZ"/>
                                             <constraint firstItem="upI-ht-e2v" firstAttribute="centerX" secondItem="Cvq-v2-Zar" secondAttribute="centerX" id="55h-L3-twY"/>
                                             <constraint firstItem="Vuk-Ly-CIh" firstAttribute="top" secondItem="w50-lf-4P3" secondAttribute="bottom" constant="8" id="6Nz-Cn-KLo"/>
-                                            <constraint firstItem="lky-AJ-3CD" firstAttribute="top" secondItem="q7B-gq-rKf" secondAttribute="bottom" constant="9" id="7We-Gg-dqL"/>
+                                            <constraint firstItem="lky-AJ-3CD" firstAttribute="top" secondItem="q7B-gq-rKf" secondAttribute="bottom" constant="14" id="7We-Gg-dqL"/>
                                             <constraint firstItem="u6m-0f-doJ" firstAttribute="centerX" secondItem="Cvq-v2-Zar" secondAttribute="centerX" id="8I2-BF-h1y"/>
+                                            <constraint firstAttribute="trailing" secondItem="g5I-Mx-6Pl" secondAttribute="trailing" constant="32" id="8sI-ES-Snr"/>
                                             <constraint firstItem="b7g-IX-3MQ" firstAttribute="top" secondItem="u6m-0f-doJ" secondAttribute="bottom" constant="8" id="BqD-iv-x0A"/>
                                             <constraint firstItem="sQT-rQ-TdL" firstAttribute="centerX" secondItem="Cvq-v2-Zar" secondAttribute="centerX" id="C5M-Rg-UFx"/>
                                             <constraint firstAttribute="trailing" secondItem="b7g-IX-3MQ" secondAttribute="trailing" constant="27.5" id="CPg-dN-5cS"/>
@@ -517,7 +540,7 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                             <constraint firstItem="0J5-0x-0gT" firstAttribute="top" secondItem="w50-lf-4P3" secondAttribute="bottom" constant="41" id="Tvf-E5-G4J"/>
                                             <constraint firstItem="sQT-rQ-TdL" firstAttribute="leading" secondItem="Cvq-v2-Zar" secondAttribute="leading" constant="12" id="Xxp-MO-XlB"/>
                                             <constraint firstItem="1Eu-wi-fWT" firstAttribute="top" secondItem="zKT-t5-S9f" secondAttribute="bottom" constant="18" id="YXY-GS-uTa"/>
-                                            <constraint firstAttribute="height" constant="1300" id="Z0L-Pi-db3"/>
+                                            <constraint firstAttribute="height" constant="1330" id="Z0L-Pi-db3"/>
                                             <constraint firstItem="sQT-rQ-TdL" firstAttribute="top" secondItem="Cvq-v2-Zar" secondAttribute="top" constant="8" id="ZVe-ba-gqw"/>
                                             <constraint firstItem="a1i-KK-vHo" firstAttribute="centerX" secondItem="Cvq-v2-Zar" secondAttribute="centerX" id="bZD-tl-G7l"/>
                                             <constraint firstItem="g5I-Mx-6Pl" firstAttribute="centerX" secondItem="Cvq-v2-Zar" secondAttribute="centerX" id="cf5-08-8HI"/>
@@ -526,10 +549,13 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                             <constraint firstItem="s7e-aQ-DbX" firstAttribute="centerX" secondItem="Cvq-v2-Zar" secondAttribute="centerX" id="dK2-HR-Aij"/>
                                             <constraint firstItem="a1i-KK-vHo" firstAttribute="top" secondItem="upI-ht-e2v" secondAttribute="bottom" constant="15" id="dfi-Ir-bKa"/>
                                             <constraint firstItem="1Eu-wi-fWT" firstAttribute="centerX" secondItem="Cvq-v2-Zar" secondAttribute="centerX" id="eG7-A0-JCm"/>
-                                            <constraint firstItem="s7e-aQ-DbX" firstAttribute="top" secondItem="q7B-gq-rKf" secondAttribute="bottom" constant="10" id="h3C-Lh-9bT"/>
+                                            <constraint firstItem="s7e-aQ-DbX" firstAttribute="top" secondItem="q7B-gq-rKf" secondAttribute="bottom" constant="14" id="h3C-Lh-9bT"/>
                                             <constraint firstItem="u6m-0f-doJ" firstAttribute="top" secondItem="g5I-Mx-6Pl" secondAttribute="bottom" constant="15" id="iEL-NB-3bP"/>
                                             <constraint firstItem="zKT-t5-S9f" firstAttribute="top" secondItem="Vuk-Ly-CIh" secondAttribute="bottom" id="k8a-gM-AVm"/>
+                                            <constraint firstAttribute="trailing" secondItem="0J5-0x-0gT" secondAttribute="trailing" constant="10" id="mSh-bo-0jg"/>
+                                            <constraint firstItem="g5I-Mx-6Pl" firstAttribute="leading" secondItem="Cvq-v2-Zar" secondAttribute="leading" constant="32" id="sJ6-9e-Cpa"/>
                                             <constraint firstItem="g5I-Mx-6Pl" firstAttribute="top" secondItem="1Eu-wi-fWT" secondAttribute="bottom" constant="8" id="udd-n4-dWy"/>
+                                            <constraint firstItem="0J5-0x-0gT" firstAttribute="leading" secondItem="Cvq-v2-Zar" secondAttribute="leading" constant="10" id="wmz-Sz-LdN"/>
                                             <constraint firstItem="zKT-t5-S9f" firstAttribute="centerX" secondItem="Cvq-v2-Zar" secondAttribute="centerX" id="xHx-4k-zQo"/>
                                             <constraint firstItem="w50-lf-4P3" firstAttribute="top" secondItem="sQT-rQ-TdL" secondAttribute="bottom" constant="8" id="z34-HV-81x"/>
                                         </constraints>
@@ -554,7 +580,7 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                             <constraint firstAttribute="trailing" secondItem="vMK-rC-Bsp" secondAttribute="trailing" id="zgZ-Tw-NSH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="IuV-Lw-SiK"/>
+                    <navigationItem key="navigationItem" title="Connecting..." largeTitleDisplayMode="always" id="IuV-Lw-SiK"/>
                     <size key="freeformSize" width="414" height="1520"/>
                     <connections>
                         <outlet property="capacityLabel" destination="0O5-sD-ER6" id="Jx2-ul-tbb"/>
@@ -570,6 +596,7 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                         <outlet property="mapView" destination="b7g-IX-3MQ" id="1Vd-9I-Sd0"/>
                         <outlet property="mapViewHeight" destination="toJ-Ro-Wkc" id="FXa-R2-7xq"/>
                         <outlet property="monitorsLabel" destination="s7e-aQ-DbX" id="MQY-Cc-RMS"/>
+                        <outlet property="scrollview" destination="vMK-rC-Bsp" id="HvO-1g-nqi"/>
                         <outlet property="viewHeight" destination="Z0L-Pi-db3" id="dhd-T8-GRn"/>
                     </connections>
                 </viewController>
@@ -733,37 +760,23 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taG-GE-5EN">
-                                                                        <rect key="frame" x="95" y="159" width="48" height="22"/>
+                                                                        <rect key="frame" x="0.0" y="8" width="222" height="187"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                                        <state key="normal" title="Visit" image="chevron.right" catalog="system">
+                                                                        <state key="normal" image="chevron.right" catalog="system">
                                                                             <color key="titleColor" name="AccentColor"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="tappWeb:" destination="ANo-KF-Jkz" eventType="touchUpInside" id="pSX-EA-axs"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KjP-M4-HHc">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="230" height="195"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Soon comming" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zU7-wD-Asj">
-                                                                                <rect key="frame" x="27" y="79" width="176" height="36"/>
-                                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                        </subviews>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.64741273590000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </view>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="230" id="5lR-uS-Nyg"/>
-                                                                    <constraint firstItem="KjP-M4-HHc" firstAttribute="top" secondItem="Q2e-wY-Qez" secondAttribute="top" id="8el-Sq-Ksg"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="KjP-M4-HHc" secondAttribute="trailing" id="CdM-v4-fSP"/>
                                                                     <constraint firstItem="Leo-fk-6AD" firstAttribute="leading" secondItem="Q2e-wY-Qez" secondAttribute="leading" id="Hoi-bR-1g4"/>
                                                                     <constraint firstItem="Leo-fk-6AD" firstAttribute="top" secondItem="Q2e-wY-Qez" secondAttribute="top" id="P6i-I5-v1K"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="KjP-M4-HHc" secondAttribute="bottom" id="mvm-A0-wZg"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Leo-fk-6AD" secondAttribute="trailing" id="q72-1B-A73"/>
                                                                     <constraint firstAttribute="height" constant="195" id="s7t-hZ-MPc"/>
-                                                                    <constraint firstItem="KjP-M4-HHc" firstAttribute="leading" secondItem="Q2e-wY-Qez" secondAttribute="leading" id="sUM-i0-MtG"/>
                                                                     <constraint firstAttribute="bottom" secondItem="Leo-fk-6AD" secondAttribute="bottom" id="sUh-2I-qUY"/>
                                                                 </constraints>
                                                             </view>
@@ -863,12 +876,12 @@ We believe this mission is indispensable because epidemic is hardly predictable,
                         <outlet property="kuasImage1" destination="XH8-zD-ped" id="fer-Jr-Sbq"/>
                         <outlet property="kuasWebView" destination="eUZ-jJ-6Xj" id="WeZ-xZ-br7"/>
                         <outlet property="menuView" destination="dYd-ev-RnU" id="WR1-H9-8LZ"/>
-                        <outlet property="soonCommingView" destination="KjP-M4-HHc" id="toS-vM-OeD"/>
+                        <outlet property="webbutton" destination="taG-GE-5EN" id="QTH-Vo-Xl9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cr2-XS-HmB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="43826" y="531"/>
+            <point key="canvasLocation" x="43824.637681159424" y="530.35714285714289"/>
         </scene>
     </scenes>
     <resources>

@@ -25,6 +25,8 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet var detailView: UIView!
     
+    @IBOutlet var scrollview: UIScrollView!
+    
     @IBOutlet var viewHeight: NSLayoutConstraint!
     
     @IBOutlet var detailImageView: UIImageView!
@@ -48,14 +50,13 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet var apiLabel: UILabel!
     
+    @IBOutlet var repeadButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUp()
         setUpObjectSize()
-        //setUpAPI()
-        //setUpAPI1()
-
 
         NotificationCenter.default.addObserver(
                     self,
@@ -65,78 +66,39 @@ class DetailsViewController: UIViewController {
         
     }
     
-    //MARK: - Set up API
-    private func setUpAPI(){
-        let urlString = "http://localhost:5000/users"
+    override func viewDidAppear(_ animated: Bool) {
+        setUp()
+    }
 
-        guard let url = URLComponents(string: urlString) else { return }
-
-        // HTTPメソッドを実行
-        let task = URLSession.shared.dataTask(with: url.url!) {(data, response, error) in
-            if (error != nil) {
-                print(error!.localizedDescription)
-            }
-            guard let _data = data else { return }
-
-            // JSONデコード
-            let users = try! JSONDecoder().decode([User].self, from: _data)
-            for row in users {
-                print("------------From database-------------")
-                print("room name:\(row.roomName)")
-                print("room detail:\(row.roomDetail)")
-                print("topic:\(row.topic)")
-                print("capacity:\(row.capacity)")
-                print("desks:\(row.desks)")
-                print("monitors: \(row.monitors)")
-            }
-        }
-        task.resume()
+    private func setUpRefreshController() {
+        
+        //refresh control
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        scrollview.refreshControl = refreshControl
+        
     }
     
-    // if let title = json["rooms"][0]["Library"]["roomName"].string {
-    //http://localhost:5000/users
-    
-    private func setUpAPI1() {
-        let url: URL = URL(string: "http://localhost:5000/users")! // URLの変更
-        let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
-            do  {
-                let couponDataArray = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any] //Any型にキャスト
-                let couponData = couponDataArray.map { (couponData) -> [String: Any] in
-                    return couponData as! [String: Any]
-                }
-                let rooms = couponData[0] as AnyObject?
-                let rooms2 = rooms?["rooms"] as AnyObject?
-                let library = rooms2?[0] as AnyObject?
-                let library2 = library?["Library"] as AnyObject?
-                let roomName = library2?[0] as AnyObject?
-                let roomName2 = roomName?["capacity"]
-                DispatchQueue.main.async {
-                    if roomName2 != nil {
-                        self.apiLabel.text = roomName2! as? String
-                    } else {
-                        print("nil")
-                    }
-                }
-                                
-            }
-            catch {
-                print(error)
-            }
-        })
-        task.resume()
-        
+    //MARK: - Refresh Controll
+    @objc func handleRefresh(sender: UIRefreshControl) {
+        // ここに通信処理などデータフェッチの処理を書く
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.loadView()
+            self.viewDidLoad()
+            sender.endRefreshing()
+        }
     }
     
     private func setUp() {
         
         self.view.backgroundColor = .systemGray6
         
-        self.navigationItem.title = roomName
+        self.navigationItem.title = roomName ?? "Connecting..."
         
         self.detailImageView.image = UIImage(named: detailImageViewName)
         detailImageView.layer.cornerRadius = 10
         
-        self.detailRoomDetail.text = roomDetailTextView
+        self.detailRoomDetail.text = roomDetailTextView ?? "Connecting..."
         //self.detailRoomDetail.layer.cornerRadius = 10
         
         self.mapView.image = UIImage(named: floorMap)
