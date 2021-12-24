@@ -29,6 +29,7 @@ class menuViewController: UIViewController {
         setUp()
         
     }
+    
     @IBAction func tappWeb(_ sender: Any) {
         let url = URL(string: "https://dtnk4448.wixsite.com/akikomi")!
         if UIApplication.shared.canOpenURL(url) {

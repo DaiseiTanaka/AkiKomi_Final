@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3402D84BF5204060B3C6F5F8 /* Pods_AkiKomi_FinalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C1CF6F390AA06825794FD9 /* Pods_AkiKomi_FinalTests.framework */; };
 		35268E2F272D3FED002047C8 /* WhatIsAkiKomi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35268E2E272D3FEC002047C8 /* WhatIsAkiKomi.swift */; };
+		354FF918277440B800C683E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35C46E57271041430058E702 /* Assets.xcassets */; };
 		3560AC3C2710440600571A27 /* TableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AC392710440600571A27 /* TableViewCellModel.swift */; };
 		3560AC3D2710440600571A27 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3560AC3A2710440600571A27 /* TableViewCell.xib */; };
 		3560AC3E2710440600571A27 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AC3B2710440600571A27 /* TableViewCell.swift */; };
@@ -21,7 +22,6 @@
 		35C46E2927103F300058E702 /* AkiKomi_FinalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C46E2827103F300058E702 /* AkiKomi_FinalTests.swift */; };
 		35C46E3327103F300058E702 /* AkiKomi_FinalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C46E3227103F300058E702 /* AkiKomi_FinalUITests.swift */; };
 		35C46E3527103F300058E702 /* AkiKomi_FinalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C46E3427103F300058E702 /* AkiKomi_FinalUITestsLaunchTests.swift */; };
-		35C46E58271041430058E702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35C46E57271041430058E702 /* Assets.xcassets */; };
 		35C46E60271041890058E702 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C46E59271041890058E702 /* DetailsViewController.swift */; };
 		35C46E61271041890058E702 /* RoomsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C46E5A271041890058E702 /* RoomsData.swift */; };
 		35C46E62271041890058E702 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35C46E5B271041890058E702 /* LaunchScreen.storyboard */; };
@@ -359,8 +359,8 @@
 				35C46E62271041890058E702 /* LaunchScreen.storyboard in Resources */,
 				3560AC3D2710440600571A27 /* TableViewCell.xib in Resources */,
 				3560AC442710440D00571A27 /* CollectionViewCell.xib in Resources */,
-				35C46E58271041430058E702 /* Assets.xcassets in Resources */,
 				35C46E66271041890058E702 /* Main.storyboard in Resources */,
+				354FF918277440B800C683E3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,7 +661,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AF7036870D1F67E779745955 /* Pods-AkiKomi_Final.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NZ6NQZK56A;
@@ -690,7 +693,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 080F2707B41D9378A0AB7A27 /* Pods-AkiKomi_Final.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NZ6NQZK56A;

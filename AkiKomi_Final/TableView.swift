@@ -359,14 +359,18 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
                         _ = roomMqtt.connect()
                         roomMqtt.didConnectAck = { mqtt, ack in
                             let topic = selectedRoom?["topic"]! as? String
-                            roomMqtt.subscribe(topic ?? "topic_advanced")
+                            roomMqtt.subscribe(topic ?? "topic_ews")
                             roomMqtt.didReceiveMessage = { mqtt, message, id in
                                 let number: Int = Int(message.string!) ?? 1
                                 let capacity = selectedRoom?["capacity"]! as? Int
                                 let percentage = Int(number * 100 / (capacity ?? 1))
                                 
                                 UIView.animate(withDuration: 1.0) {
-                                    DestViewController.detailCircle.value = CGFloat(percentage)
+                                    if percentage >= 0 {
+                                        DestViewController.detailCircle.value = CGFloat(percentage)
+                                    } else {
+                                        DestViewController.detailCircle.value = 0
+                                    }
                                 }
                                 DestViewController.detailPercentLabel.text = "\(String(percentage))%"
                                 DestViewController.detailNumberLabel.text = "There are \(message.string!) people in the room."
@@ -431,7 +435,7 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
 
 extension TableView: CollectionViewCellDelegate {
     func collectionView(collectionviewcell: CollectionViewCell?, index: Int, didTappedInTableViewCell: TableViewCell) {
-        if let colorsRow = didTappedInTableViewCell.rowWithColors {
+        if let colorsRow = didTappedInTableViewCell.rowWhithRooms {
             self.tappedCell = colorsRow[index]
             performSegue(withIdentifier: "detailsviewcontrollerseg", sender: self)
             // You can also do changes to the cell you tapped using the 'collectionviewcell'

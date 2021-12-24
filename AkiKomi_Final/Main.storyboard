@@ -783,7 +783,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUZ-jJ-6Xj">
                                                                 <rect key="frame" x="0.0" y="205" width="230" height="195"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websiteKUAS2" translatesAutoresizingMaskIntoConstraints="NO" id="XH8-zD-ped">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="website_kuas" translatesAutoresizingMaskIntoConstraints="NO" id="XH8-zD-ped">
                                                                         <rect key="frame" x="0.0" y="0.0" width="230" height="195"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KUAS website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Gl-xl-B5W">
@@ -897,7 +897,6 @@
         <image name="lineweight" catalog="system" width="128" height="110"/>
         <image name="logo_coa" width="945" height="430"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
-        <image name="websiteKUAS2" width="1196" height="657"/>
         <image name="website_AkiKomi2" width="1297" height="605"/>
         <image name="website_akikomi" width="1258" height="624"/>
         <image name="website_kuas" width="1196" height="657"/>

@@ -9,6 +9,7 @@
 import UIKit
 import CocoaMQTT
 
+
 protocol CollectionViewCellDelegate: AnyObject {
     func collectionView(collectionviewcell: CollectionViewCell?, index: Int, didTappedInTableViewCell: TableViewCell)
     // other delegate methods that you can define to perform action in viewcontroller
@@ -20,7 +21,7 @@ class TableViewCell: UITableViewCell {
     
     weak var cellDelegate: CollectionViewCellDelegate?
     
-    var rowWithColors: [CollectionViewCellModel]?
+    var rowWhithRooms: [CollectionViewCellModel]?
     
     
     @IBOutlet var subCategoryLabel: UILabel!
@@ -57,7 +58,7 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
     
     // The data we passed from the TableView send them to the CollectionView Model
     func updateCellWith(row: [CollectionViewCellModel]) {
-        self.rowWithColors = row
+        self.rowWhithRooms = row
         self.collectionView.reloadData()
     }
     
@@ -70,7 +71,7 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.rowWithColors?.count  ?? 0
+        return self.rowWhithRooms?.count  ?? 0
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -79,6 +80,7 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
     
     // Set the data for each cell (color and color name)
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionviewcellid", for: indexPath) as? CollectionViewCell {
             //cell.colorView.backgroundColor = self.rowWithColors?[indexPath.item].color ?? UIColor.black
             
@@ -89,7 +91,7 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
                     if data == nil {
                         DispatchQueue.main.async {
                             
-                            cell.nameLabel.text = self.rowWithColors?[indexPath.item].name ?? ""
+                            cell.nameLabel.text = self.rowWhithRooms?[indexPath.item].name ?? ""
                         }
                     }
                     
@@ -103,9 +105,9 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
                         let Rooms = Building2?[0] as AnyObject?
                         let Rooms2 = Rooms?["rooms"] as AnyObject?
                         let Category = Rooms2?[0] as AnyObject?
-                        let Category2 = Category?[self.rowWithColors?[indexPath.item].category ?? "Library"] as AnyObject?
+                        let Category2 = Category?[self.rowWhithRooms?[indexPath.item].category ?? "Library"] as AnyObject?
                         let Room = Category2?[0] as AnyObject?
-                        let Room2 = Room?[self.rowWithColors?[indexPath.item].name ?? "South Library"] as AnyObject?
+                        let Room2 = Room?[self.rowWhithRooms?[indexPath.item].name ?? "South Library"] as AnyObject?
                         let selectedRoom = Room2?[0] as AnyObject?
                         
                         let roomName = selectedRoom?["roomName"]
@@ -118,7 +120,7 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
                         }
                         
                         //MARK: - Set up MQTT
-                        let clientID = String(self.rowWithColors?[indexPath.item].imageName ?? "connected_error!!") + String(ProcessInfo().processIdentifier)
+                        let clientID = String(self.rowWhithRooms?[indexPath.item].imageName ?? "connected_error!!") + String(ProcessInfo().processIdentifier)
                         
                         let hostmqttKUAS = "172.31.32.141"
                         let hostmqttEWS = "192.168.1.111"
@@ -127,7 +129,7 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
                         _ = roomMqtt.connect()
                         roomMqtt.didConnectAck = { mqtt, ack in
                             let topic = selectedRoom?["topic"]! as? String
-                            roomMqtt.subscribe(topic ?? "topic_aadvanced")
+                            roomMqtt.subscribe(topic ?? "topic_ews")
                             roomMqtt.didReceiveMessage = { mqtt, message, id in
                                 
                                 let number: Int = Int(message.string!) ?? 1
@@ -135,7 +137,11 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
                                 let percentage = Int(number * 100 / (capacity ?? 1))
                                 
                                 UIView.animate(withDuration: 1.0) {
-                                    cell.miniCircle.value = CGFloat(percentage)
+                                    if percentage >= 0 {
+                                        cell.miniCircle.value = CGFloat(percentage)
+                                    } else {
+                                        cell.miniCircle.value = 0
+                                    }
                                 }
                                 cell.percentageLabel.text = "\(String(percentage))%"
                                 
@@ -174,14 +180,14 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
                     
                 }
                 catch {
-                    cell.nameLabel.text = self.rowWithColors?[indexPath.item].name ?? "Connecting..."
+                    cell.nameLabel.text = self.rowWhithRooms?[indexPath.item].name ?? "Connecting..."
                     print(error)
                 }
             })
             task.resume()
             
             //cell.nameLabel.text = self.rowWithColors?[indexPath.item].name ?? ""
-            cell.imageView.image = UIImage(named: self.rowWithColors?[indexPath.item].imageName ??  "advanced_hall")
+            cell.imageView.image = UIImage(named: self.rowWhithRooms?[indexPath.item].imageName ??  "advanced_hall")
             
             
             return cell

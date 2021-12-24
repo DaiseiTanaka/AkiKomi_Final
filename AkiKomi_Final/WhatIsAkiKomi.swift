@@ -20,7 +20,7 @@ class WhatIsAkiKomi: UIViewController {
 
         Feedbacker.impact(style: .heavy)
         let scrollWidth = scrollViewWidth.constant
-        stackViewWidth.constant = scrollWidth * 5.3
+        stackViewWidth.constant = scrollWidth * 4.7
         //scrollViewHeight.constant = scrollViewWidth.constant * 0.575
     }
     
