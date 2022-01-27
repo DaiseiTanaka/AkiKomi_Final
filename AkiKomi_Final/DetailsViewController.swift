@@ -22,7 +22,10 @@ class DetailsViewController: UIViewController {
     var numCapacity: Int!
     var numDesks: Int!
     var numMonitors: Int!
-
+    
+    var wifi: String!
+    @IBOutlet var wifi_connection: UIBarButtonItem!
+    
     @IBOutlet var detailView: UIView!
     
     @IBOutlet var scrollview: UIScrollView!
@@ -101,7 +104,7 @@ class DetailsViewController: UIViewController {
         self.detailRoomDetail.text = roomDetailTextView ?? "Connecting..."
         //self.detailRoomDetail.layer.cornerRadius = 10
         
-        self.mapView.image = UIImage(named: floorMap)
+        self.mapView.image = UIImage(named: floorMap ?? "dummyImage")
         self.mapView.setupImageViewer()
         self.mapView.layer.cornerRadius = 10
 
@@ -112,8 +115,18 @@ class DetailsViewController: UIViewController {
         
         self.monitorsLabel.text = String(numMonitors ?? 0)
     
-
+//        if wifi == "Non_connection" {
+//            self.wifi_connection = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(wifi_connection(_:)))
+//            self.navigationItem.rightBarButtonItem = wifi_connection
+//
+//        } else {
+//            self.wifi_connection = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(wifi_connection(_:)))
+//        }
     }
+    
+    @objc func wifi_connection(_ sender: UIBarButtonItem) {
+       print("追加ボタンが押されました")
+     }
     
     private func setUpObjectSize() {
         let height = UIScreen.main.bounds.size.height

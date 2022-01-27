@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MRT-Zg-Bwy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MRT-Zg-Bwy">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -30,14 +30,14 @@
             <objects>
                 <viewController id="nuc-ak-62w" customClass="WhatIsAkiKomi" customModule="AkiKomi_Final" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DpR-Yq-5k8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1546"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zd2-qh-O8v">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1546"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OyP-aS-jyT">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1220"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AkiKomi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktl-ZO-SJk">
                                                 <rect key="frame" x="20" y="20" width="374" height="37"/>
@@ -55,10 +55,7 @@
                                                     <constraint firstAttribute="width" constant="374" id="WSc-l6-QiA"/>
                                                     <constraint firstAttribute="height" constant="280" id="yTa-MG-p2Z"/>
                                                 </constraints>
-                                                <string key="text">   Coronavirus has changed our lives dramatically over a very short period of time. It forces people to stay apart and keep certain distance from each other. People are encouraged to avoid 3Cs-closed space, crowded place, and close contact. In universities and workplaces, rooms are only allowed to be occupied by up to 50% of their capacities. Nevertheless, there are often many rooms in an organization, making it extremely difficult for people to keep tracking the vacancies of all rooms by themselves. For example, the Kyoto University of Advanced Science (KUAS) holds at least 70 rooms in regular use. As a result, students may have to spend a lot of time searching for available study rooms on campus. Similar problem also exists in workplaces where office workers may have to waste time to look for available meeting rooms.
-    Our mission at AkiKomi is to provide quick and reliable data of room occupancy to everyone by exploiting our sensors and mobile application. We are aiming not only to support elimination strategy of prevalent global epidemic but prevention of forthcoming epidemic.  
-    We believe this mission is indispensable because epidemic is hardly predictable, and its threat is formidable. Utilizing our technology enable us to handle them instantaneously and has potential to become a powerful tool for saving people’s lives. 
-    We will continue to develop our technology to provide comfortable environment and improve the sense of safety in people’s daily life.</string>
+                                                <string key="text">   Today, people are encouraged to avoid 3Cs-closed space, crowded place, and close contact. In universities and workplaces, rooms are only allowed to be occupied by up to 50% of their capacities. Nevertheless, there are often many rooms in an organization, making it extremely difficult for people to keep tracking the vacancies of all rooms by themselves. For example, the Kyoto University of Advanced Science (KUAS) holds at least 70 rooms in regular use. As a result, students may have to spend a lot of time searching for available study rooms on campus. Similar problem also exists in workplaces where office workers may have to waste time to look for available meeting rooms.\n   Our mission at AkiKomi is to provide quick and reliable data of room occupancy to everyone by exploiting our sensors and mobile application. We are aiming not only to support elimination strategy of prevalent global epidemic but prevention of forthcoming epidemic.       We believe this mission is indispensable because epidemic is hardly predictable, and its threat is formidable. Utilizing our technology enable us to handle them instantaneously and has potential to become a powerful tool for saving people’s lives.      We will continue to develop our technology to provide comfortable environment and improve the sense of safety in people’s daily life.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -122,7 +119,7 @@
                                                 </constraints>
                                             </scrollView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="・SNS  Instagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVN-Eq-CgR">
-                                                <rect key="frame" x="36" y="668" width="200" height="20.5"/>
+                                                <rect key="frame" x="36" y="1048" width="200" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="axJ-0F-COG"/>
                                                 </constraints>
@@ -131,7 +128,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We usually upload project progress. Please follow us! Tap the QR code!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEf-9z-b0M">
-                                                <rect key="frame" x="45.5" y="690.5" width="323" height="45"/>
+                                                <rect key="frame" x="45.5" y="1070.5" width="323" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="PZW-an-R0b"/>
                                                     <constraint firstAttribute="width" constant="323" id="QFO-z5-1a6"/>
@@ -141,14 +138,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram" translatesAutoresizingMaskIntoConstraints="NO" id="aKp-c7-wX5">
-                                                <rect key="frame" x="92" y="737.5" width="230" height="230"/>
+                                                <rect key="frame" x="92" y="1117.5" width="230" height="230"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="230" id="D0i-qB-LGk"/>
                                                     <constraint firstAttribute="height" constant="230" id="xHA-02-zYh"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="・Contact with us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgF-Tq-4fZ">
-                                                <rect key="frame" x="36" y="992.5" width="200" height="20.5"/>
+                                                <rect key="frame" x="36" y="1372.5" width="200" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="Hvs-YG-e9g"/>
                                                 </constraints>
@@ -157,7 +154,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" If you have any comment or request, do not hesitate to email or DM for us." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QG5-tN-5Oc">
-                                                <rect key="frame" x="45.5" y="1021" width="323" height="45"/>
+                                                <rect key="frame" x="45.5" y="1401" width="323" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="He3-aV-O6C"/>
                                                     <constraint firstAttribute="width" constant="323" id="b4Q-Z1-OvU"/>
@@ -167,7 +164,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="email:    akikomi.kuas@icloud.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZtR-4N-gOo">
-                                                <rect key="frame" x="45" y="1074" width="324" height="35"/>
+                                                <rect key="frame" x="45" y="1454" width="324" height="35"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="324" id="BWF-IA-fxw"/>
@@ -178,7 +175,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flM-it-A5i">
-                                                <rect key="frame" x="102.5" y="743" width="209" height="225"/>
+                                                <rect key="frame" x="102.5" y="1123" width="209" height="225"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="209" id="7qe-pa-Pso"/>
                                                     <constraint firstAttribute="height" constant="225" id="TqM-Id-NMw"/>
@@ -199,37 +196,72 @@
                                                     <action selector="changeLanguage:" destination="nuc-ak-62w" eventType="valueChanged" id="uAq-4h-lDn"/>
                                                 </connections>
                                             </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="・How to use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6N-g3-gfx">
+                                                <rect key="frame" x="36" y="677" width="150" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="26" id="768-dV-qq3"/>
+                                                    <constraint firstAttribute="width" constant="150" id="QhI-h1-6vl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="south_building" translatesAutoresizingMaskIntoConstraints="NO" id="KB4-4o-nhs">
+                                                <rect key="frame" x="0.0" y="693" width="414" height="274"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="274" id="bzD-hM-tTx"/>
+                                                    <constraint firstAttribute="width" constant="414" id="jzq-Vi-yjh"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5O-79-Phg">
+                                                <rect key="frame" x="20" y="711" width="374" height="160"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="160" id="okz-zO-lvD"/>
+                                                    <constraint firstAttribute="width" constant="374" id="sf5-P6-9el"/>
+                                                </constraints>
+                                                <mutableString key="text">　This Akikomi system can be used by anyone by connecting to the school wifi (kuas-wlan). In order to connect to this wifi, you need to log in to wifi, so it cannot be used by those who do not have a login ID or in places where the school wifi does not reach.</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="ESG-Xt-AL4" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="36" id="1Zq-9D-mUo"/>
                                             <constraint firstItem="SVN-Eq-CgR" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="36" id="1tN-If-uVz"/>
                                             <constraint firstItem="flM-it-A5i" firstAttribute="centerX" secondItem="OyP-aS-jyT" secondAttribute="centerX" id="4UB-GS-M0n"/>
+                                            <constraint firstItem="KB4-4o-nhs" firstAttribute="top" secondItem="dbZ-AF-SZn" secondAttribute="bottom" constant="45" id="5Dn-It-kxS"/>
+                                            <constraint firstItem="KB4-4o-nhs" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" id="7eI-5O-jEe"/>
                                             <constraint firstItem="e1p-Po-LxP" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="20" id="7lY-un-dIW"/>
                                             <constraint firstItem="e1p-Po-LxP" firstAttribute="centerX" secondItem="OyP-aS-jyT" secondAttribute="centerX" id="8xY-Fm-sEl"/>
                                             <constraint firstItem="teg-Bl-Daz" firstAttribute="top" secondItem="e1p-Po-LxP" secondAttribute="bottom" constant="20" id="9V2-tJ-FFW"/>
                                             <constraint firstItem="QG5-tN-5Oc" firstAttribute="centerX" secondItem="OyP-aS-jyT" secondAttribute="centerX" id="BeJ-Jm-7Sa"/>
-                                            <constraint firstAttribute="height" constant="1220" id="EFX-zQ-365"/>
+                                            <constraint firstAttribute="height" constant="1600" id="EFX-zQ-365"/>
                                             <constraint firstItem="Ktl-ZO-SJk" firstAttribute="top" secondItem="OyP-aS-jyT" secondAttribute="top" constant="20" id="FbB-SC-zl1"/>
                                             <constraint firstItem="ZgF-Tq-4fZ" firstAttribute="top" secondItem="aKp-c7-wX5" secondAttribute="bottom" constant="25" id="GBG-fv-Z3c"/>
+                                            <constraint firstItem="N6N-g3-gfx" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="36" id="GRf-hH-9FM"/>
                                             <constraint firstItem="teg-Bl-Daz" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="36" id="HeC-X8-WWT"/>
+                                            <constraint firstItem="U5O-79-Phg" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="20" id="Lsa-gz-TXg"/>
                                             <constraint firstItem="QG5-tN-5Oc" firstAttribute="top" secondItem="ZgF-Tq-4fZ" secondAttribute="bottom" constant="8" id="NNU-5S-vLd"/>
                                             <constraint firstItem="ZtR-4N-gOo" firstAttribute="centerX" secondItem="OyP-aS-jyT" secondAttribute="centerX" id="QP1-TX-mbh"/>
                                             <constraint firstAttribute="trailing" secondItem="Ktl-ZO-SJk" secondAttribute="trailing" constant="20" id="T0A-UN-Tx1"/>
                                             <constraint firstItem="QEf-9z-b0M" firstAttribute="centerX" secondItem="OyP-aS-jyT" secondAttribute="centerX" id="YtX-sB-V2Q"/>
                                             <constraint firstItem="ZtR-4N-gOo" firstAttribute="top" secondItem="QG5-tN-5Oc" secondAttribute="bottom" constant="8" id="ZeS-oO-clV"/>
                                             <constraint firstItem="dbZ-AF-SZn" firstAttribute="centerX" secondItem="OyP-aS-jyT" secondAttribute="centerX" id="ZfM-Vk-Wsk"/>
+                                            <constraint firstAttribute="trailing" secondItem="U5O-79-Phg" secondAttribute="trailing" constant="20" id="czh-4d-s47"/>
                                             <constraint firstItem="aKp-c7-wX5" firstAttribute="top" secondItem="QEf-9z-b0M" secondAttribute="bottom" constant="2" id="dgR-Sk-Irk"/>
                                             <constraint firstItem="aKp-c7-wX5" firstAttribute="centerX" secondItem="OyP-aS-jyT" secondAttribute="centerX" id="eAA-dc-8q3"/>
                                             <constraint firstItem="flM-it-A5i" firstAttribute="top" secondItem="QEf-9z-b0M" secondAttribute="bottom" constant="7.5" id="eXW-A0-OGJ"/>
                                             <constraint firstAttribute="trailing" secondItem="dbZ-AF-SZn" secondAttribute="trailing" constant="18" id="eiS-Rq-oHh"/>
-                                            <constraint firstItem="SVN-Eq-CgR" firstAttribute="top" secondItem="dbZ-AF-SZn" secondAttribute="bottom" constant="20" id="fpj-sb-ja7"/>
+                                            <constraint firstItem="SVN-Eq-CgR" firstAttribute="top" secondItem="dbZ-AF-SZn" secondAttribute="bottom" constant="400" id="fpj-sb-ja7"/>
                                             <constraint firstItem="e1p-Po-LxP" firstAttribute="top" secondItem="STW-QI-ubl" secondAttribute="bottom" constant="1.5" id="fsM-bs-78y"/>
                                             <constraint firstItem="dbZ-AF-SZn" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="18" id="hJQ-TZ-imk"/>
+                                            <constraint firstItem="N6N-g3-gfx" firstAttribute="top" secondItem="dbZ-AF-SZn" secondAttribute="bottom" constant="29" id="hqn-mI-uy0"/>
                                             <constraint firstItem="e1p-Po-LxP" firstAttribute="top" secondItem="ESG-Xt-AL4" secondAttribute="bottom" constant="4" id="lY9-dB-Xcy"/>
                                             <constraint firstItem="dbZ-AF-SZn" firstAttribute="top" secondItem="teg-Bl-Daz" secondAttribute="bottom" constant="8" id="m2P-aP-P0h"/>
                                             <constraint firstAttribute="trailing" secondItem="e1p-Po-LxP" secondAttribute="trailing" constant="20" id="ocZ-zU-uc3"/>
+                                            <constraint firstItem="U5O-79-Phg" firstAttribute="top" secondItem="N6N-g3-gfx" secondAttribute="bottom" constant="8" id="pq6-OA-RjJ"/>
                                             <constraint firstItem="Ktl-ZO-SJk" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="20" id="qIv-El-TkK"/>
+                                            <constraint firstAttribute="trailing" secondItem="KB4-4o-nhs" secondAttribute="trailing" id="sYV-Cb-whC"/>
                                             <constraint firstItem="QEf-9z-b0M" firstAttribute="top" secondItem="SVN-Eq-CgR" secondAttribute="bottom" constant="2" id="vjq-XZ-xYr"/>
                                             <constraint firstAttribute="trailing" secondItem="STW-QI-ubl" secondAttribute="trailing" constant="26" id="vy6-HL-ll1"/>
                                             <constraint firstItem="ZgF-Tq-4fZ" firstAttribute="leading" secondItem="OyP-aS-jyT" secondAttribute="leading" constant="36" id="wGF-G2-ERT"/>
@@ -250,11 +282,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zd2-qh-O8v" firstAttribute="leading" secondItem="KTy-B5-Pnd" secondAttribute="leading" id="Xjp-Zz-4s9"/>
-                            <constraint firstAttribute="bottom" secondItem="zd2-qh-O8v" secondAttribute="bottom" id="cec-Km-jlX"/>
                             <constraint firstItem="zd2-qh-O8v" firstAttribute="top" secondItem="KTy-B5-Pnd" secondAttribute="top" id="okC-Pq-Pd2"/>
                             <constraint firstItem="zd2-qh-O8v" firstAttribute="trailing" secondItem="KTy-B5-Pnd" secondAttribute="trailing" id="rD6-eo-ssH"/>
+                            <constraint firstAttribute="bottom" secondItem="zd2-qh-O8v" secondAttribute="bottom" id="vnD-xZ-BFf"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="1600"/>
                     <connections>
                         <outlet property="missionStatement" destination="e1p-Po-LxP" id="TYg-t0-q7P"/>
                         <outlet property="scrollViewHeight" destination="YRw-cx-C9i" id="ang-Jb-Mbb"/>
@@ -264,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JqT-1X-Z0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="43963.768115942032" y="-978.34821428571422"/>
+            <point key="canvasLocation" x="43995.652173913048" y="-1309.1517857142856"/>
         </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -683,7 +716,7 @@
                                 <rect key="frame" x="19" y="292" width="374" height="111"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="61"/>
-                                <color key="textColor" red="0.66531508350869106" green="0.012662944163855223" blue="0.72756988833648983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.70245164632797241" green="0.14499356222357318" blue="0.11205634625074026" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@created by AkiKomi project" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhs-WF-29o">
@@ -897,6 +930,7 @@
         <image name="lineweight" catalog="system" width="128" height="110"/>
         <image name="logo_coa" width="945" height="430"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
+        <image name="south_building" width="997" height="592"/>
         <image name="website_AkiKomi2" width="1297" height="605"/>
         <image name="website_akikomi" width="1258" height="624"/>
         <image name="website_kuas" width="1196" height="657"/>

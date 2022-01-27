@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3402D84BF5204060B3C6F5F8 /* Pods_AkiKomi_FinalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C1CF6F390AA06825794FD9 /* Pods_AkiKomi_FinalTests.framework */; };
 		35268E2F272D3FED002047C8 /* WhatIsAkiKomi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35268E2E272D3FEC002047C8 /* WhatIsAkiKomi.swift */; };
-		354FF918277440B800C683E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35C46E57271041430058E702 /* Assets.xcassets */; };
 		3560AC3C2710440600571A27 /* TableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AC392710440600571A27 /* TableViewCellModel.swift */; };
 		3560AC3D2710440600571A27 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3560AC3A2710440600571A27 /* TableViewCell.xib */; };
 		3560AC3E2710440600571A27 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AC3B2710440600571A27 /* TableViewCell.swift */; };
@@ -17,6 +16,7 @@
 		3560AC432710440D00571A27 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AC402710440D00571A27 /* CollectionViewCell.swift */; };
 		3560AC442710440D00571A27 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3560AC412710440D00571A27 /* CollectionViewCell.xib */; };
 		3560AC462710447200571A27 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AC452710447200571A27 /* TableView.swift */; };
+		35A08585277E02BF00507F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35A08584277E02BF00507F37 /* Assets.xcassets */; };
 		35C46E1227103F2E0058E702 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C46E1127103F2E0058E702 /* AppDelegate.swift */; };
 		35C46E1427103F2E0058E702 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C46E1327103F2E0058E702 /* SceneDelegate.swift */; };
 		35C46E2927103F300058E702 /* AkiKomi_FinalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C46E2827103F300058E702 /* AkiKomi_FinalTests.swift */; };
@@ -66,6 +66,7 @@
 		3560AC402710440D00571A27 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		3560AC412710440D00571A27 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		3560AC452710447200571A27 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		35A08584277E02BF00507F37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35C46E0E27103F2E0058E702 /* AkiKomi_Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AkiKomi_Final.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35C46E1127103F2E0058E702 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35C46E1327103F2E0058E702 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		35C46E2E27103F300058E702 /* AkiKomi_FinalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AkiKomi_FinalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35C46E3227103F300058E702 /* AkiKomi_FinalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AkiKomi_FinalUITests.swift; sourceTree = "<group>"; };
 		35C46E3427103F300058E702 /* AkiKomi_FinalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AkiKomi_FinalUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		35C46E57271041430058E702 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Assets.xcassets"; sourceTree = "<group>"; };
 		35C46E59271041890058E702 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		35C46E5A271041890058E702 /* RoomsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsData.swift; sourceTree = "<group>"; };
 		35C46E5B271041890058E702 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 				35C46E5A271041890058E702 /* RoomsData.swift */,
 				35C46E5E271041890058E702 /* SearchViewController.swift */,
 				35268E2E272D3FEC002047C8 /* WhatIsAkiKomi.swift */,
-				35C46E57271041430058E702 /* Assets.xcassets */,
+				35A08584277E02BF00507F37 /* Assets.xcassets */,
 				35C46E1F27103F300058E702 /* Info.plist */,
 				35F5A4762719926A00976176 /* test.json */,
 			);
@@ -360,7 +360,7 @@
 				3560AC3D2710440600571A27 /* TableViewCell.xib in Resources */,
 				3560AC442710440D00571A27 /* CollectionViewCell.xib in Resources */,
 				35C46E66271041890058E702 /* Main.storyboard in Resources */,
-				354FF918277440B800C683E3 /* Assets.xcassets in Resources */,
+				35A08585277E02BF00507F37 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,8 +673,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -705,8 +706,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

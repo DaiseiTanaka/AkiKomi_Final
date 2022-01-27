@@ -14,4 +14,8 @@ struct CollectionViewCellModel {
     var floorMaps: String
     var name: String
     var imageName: String
+    var roomDetail: String
+    var capacity: Int
+    var desks: Int
+    var monitors: Int
 }

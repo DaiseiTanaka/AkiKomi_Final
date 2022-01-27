@@ -354,11 +354,16 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
                         let hostmqttEWS = "192.168.1.111"
                         let detailRoomClientID = self.tappedCell.name + String(ProcessInfo().processIdentifier)
                         
-                        let roomMqtt = CocoaMQTT(clientID: detailRoomClientID, host: hostmqttEWS, port: 1883)
+                        let roomMqtt = CocoaMQTT(clientID: detailRoomClientID, host: hostmqttKUAS, port: 1883)
                         roomMqtt.autoReconnect = true
                         _ = roomMqtt.connect()
                         roomMqtt.didConnectAck = { mqtt, ack in
                             let topic = selectedRoom?["topic"]! as? String
+                            
+                            if topic == nil {
+                                DestViewController.wifi = "Non_connection"
+                            }
+                            
                             roomMqtt.subscribe(topic ?? "topic_ews")
                             roomMqtt.didReceiveMessage = { mqtt, message, id in
                                 let number: Int = Int(message.string!) ?? 1

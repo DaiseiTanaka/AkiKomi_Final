@@ -124,7 +124,7 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
                         
                         let hostmqttKUAS = "172.31.32.141"
                         let hostmqttEWS = "192.168.1.111"
-                        let roomMqtt = CocoaMQTT(clientID: clientID, host: hostmqttEWS, port: 1883)
+                        let roomMqtt = CocoaMQTT(clientID: clientID, host: hostmqttKUAS, port: 1883)
                         roomMqtt.autoReconnect = true
                         _ = roomMqtt.connect()
                         roomMqtt.didConnectAck = { mqtt, ack in
