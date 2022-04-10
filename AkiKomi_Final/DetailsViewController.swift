@@ -40,6 +40,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet var detailAllartLabel: UILabel!
     @IBOutlet var detailNumberLabel: UILabel!
     @IBOutlet var detailCircle: MBCircularProgressBarView!
+    @IBOutlet var numberLabel: UILabel!
     
     @IBOutlet var detailRoomDetail: UITextView!
     
@@ -99,6 +100,7 @@ class DetailsViewController: UIViewController {
         self.navigationItem.title = roomName ?? "Connecting..."
         
         self.detailImageView.image = UIImage(named: detailImageViewName)
+        
         detailImageView.layer.cornerRadius = 10
         
         self.detailRoomDetail.text = roomDetailTextView ?? "Connecting..."
@@ -123,10 +125,7 @@ class DetailsViewController: UIViewController {
 //            self.wifi_connection = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(wifi_connection(_:)))
 //        }
     }
-    
-    @objc func wifi_connection(_ sender: UIBarButtonItem) {
-       print("追加ボタンが押されました")
-     }
+
     
     private func setUpObjectSize() {
         let height = UIScreen.main.bounds.size.height

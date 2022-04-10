@@ -15,6 +15,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var percentageLabel: UILabel!
+    @IBOutlet var numberLabelCell: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -10,6 +10,8 @@ target 'AkiKomi_Final' do
   pod 'MBCircularProgressBar'
   pod 'ImageViewer.swift', '~> 3.0'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'CLTypingLabel'
+  pod "LoadMoreTableViewController"
 
   target 'AkiKomi_FinalTests' do
     inherit! :search_paths

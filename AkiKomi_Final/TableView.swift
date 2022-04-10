@@ -13,16 +13,16 @@ class TableView: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var wifiSwitch: UISwitch!
+    
     var colorsArray = RoomData()
     var tappedCell: CollectionViewCellModel!
     var rowWithColors: [CollectionViewCellModel]?
-    
-    
-    
+        
     var searchController = UISearchController(searchResultsController: nil)
     let url: URL = URL(string: "http://192.168.1.111:5000/users")! // URLの変更
+    var wifiSwitchCond: Bool = true
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //tableView.backgroundColor = UIColor.colorFromHex("#9E1C40")
@@ -31,14 +31,13 @@ class TableView: UIViewController {
         
         //setUpSegmantContoller()
         
-        setUpRefreshController()
+        //setUpRefreshController()
         
         
         // Register the xib for tableview cell
         let cellNib = UINib(nibName: "TableViewCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: "tableviewcellid")
-        
-        
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,8 +85,6 @@ class TableView: UIViewController {
         self.view.addSubview(mySegment)
         
     }
-    
-    
     
     private func setUpSearchBar() {
         
@@ -139,11 +136,20 @@ class TableView: UIViewController {
         }
     }
     
+//    @IBAction func wifiSwitcher(_ sender: UISwitch) {
+//        if sender.isOn {
+//
+//        } else {
+//
+//        }
+//    }
+    
 }
 
 extension TableView: UISearchBarDelegate {
     
 }
+
 
 
 extension TableView: UITableViewDelegate, UITableViewDataSource {
@@ -180,53 +186,53 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewcellid", for: indexPath) as? TableViewCell {
+            cell.subCategoryLabel.text = colorsArray.objectsArray[0].subcategory[indexPath.row]
             
             //MARK: - API section
-            let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
-                do  {
-                    
-                    if data == nil {
-                        DispatchQueue.main.async {
-                            
-                            cell.subCategoryLabel.text = "connecting ..."
-                        }
-                    }
-                    
-                    else {
-                        
-                        let roomDataArray = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any] //Any型にキャスト
-                        let roomData = roomDataArray.map { (roomData) -> [String: Any] in
-                            return roomData as! [String: Any]
-                        }
-                        let Building = roomData[0] as AnyObject?
-                        let Building2 = Building?["South Building"] as AnyObject?
-                        let Rooms = Building2?[0] as AnyObject?
-                        //                    let Rooms2 = Rooms?["rooms"] as AnyObject?
-                        //                    let Category = Rooms2?[0] as AnyObject?
-                        //                    let Category2 = Category?[indexPath.row] as AnyObject?
-                        //                    let Room = Category2?[0] as AnyObject?
-                        //                    let Room2 = Room?[indexPath.section] as AnyObject?
-                        //                    let selectedRoom = Room2?[0] as AnyObject?
-                        
-                        let SubCategory = Rooms?["subcategory"] as AnyObject?
-                        let subCategoryTitle = SubCategory?[indexPath.row] as AnyObject?
-                        
-                        DispatchQueue.main.async {
-                            if SubCategory != nil {
-                                cell.subCategoryLabel.text = subCategoryTitle! as? String
-                            } else {
-                                cell.subCategoryLabel.text = "connecting ..."
-                            }
-                        }
-                    }
-                }
-                
-                catch {
-                    cell.subCategoryLabel.text = "connecting ..."
-                    print(error)
-                }
-            })
-            task.resume()
+//            let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
+//                do  {
+//
+//                    if data == nil {
+//                        DispatchQueue.main.async {
+//                            cell.subCategoryLabel.text = self.colorsArray.objectsArray[0].subcategory[indexPath.row]
+//                        }
+//                    }
+//
+//                    else {
+//
+//                        let roomDataArray = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any] //Any型にキャスト
+//                        let roomData = roomDataArray.map { (roomData) -> [String: Any] in
+//                            return roomData as! [String: Any]
+//                        }
+//                        let Building = roomData[0] as AnyObject?
+//                        let Building2 = Building?["South Building"] as AnyObject?
+//                        let Rooms = Building2?[0] as AnyObject?
+//                        //                    let Rooms2 = Rooms?["rooms"] as AnyObject?
+//                        //                    let Category = Rooms2?[0] as AnyObject?
+//                        //                    let Category2 = Category?[indexPath.row] as AnyObject?
+//                        //                    let Room = Category2?[0] as AnyObject?
+//                        //                    let Room2 = Room?[indexPath.section] as AnyObject?
+//                        //                    let selectedRoom = Room2?[0] as AnyObject?
+//
+//                        let SubCategory = Rooms?["subcategory"] as AnyObject?
+//                        let subCategoryTitle = SubCategory?[indexPath.row] as AnyObject?
+//
+//                        DispatchQueue.main.async {
+//                            if SubCategory != nil {
+//                                cell.subCategoryLabel.text = subCategoryTitle! as? String
+//                            } else {
+//                                cell.subCategoryLabel.text = "connecting ..."
+//                            }
+//                        }
+//                    }
+//                }
+//
+//                catch {
+//                    cell.subCategoryLabel.text = "connecting ..."
+//                    print(error)
+//                }
+//            })
+//            task.resume()
             
             
             
@@ -292,146 +298,228 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    
     //MARK: - Set up Detail View
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailsviewcontrollerseg" {
             let DestViewController = segue.destination as! DetailsViewController
             
-            //MARK: - API section
-            let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
-                do  {
-                    if data == nil {
-                        DestViewController.roomName = "nil"
-                        DestViewController.roomDetailTextView = "nil"
-                        DestViewController.numCapacity = 0
-                        DestViewController.numDesks = 0
-                        DestViewController.numMonitors = 0
+            //MARK: - Set up MQTT
+            //let hostMqtt = wifiSwitcher(sender: self.wifiSwitch)
+            //let hostMqtt = "172.31.32.141"
+            //let hostMqtt = "192.168.1.111"
+            let hostMqtt = "54.165.233.114"
+            let detailRoomClientID = self.tappedCell.name + String(ProcessInfo().processIdentifier)
+            let roomMqtt = CocoaMQTT(clientID: detailRoomClientID, host: hostMqtt, port: 8883)
+            roomMqtt.autoReconnect = true
+            _ = roomMqtt.connect()
+            roomMqtt.didConnectAck = { mqtt, ack in
+                let topic = self.tappedCell.topic
+                //print("__________-------" + topic)
+                roomMqtt.subscribe(topic)
+
+                roomMqtt.didReceiveMessage = { mqtt, message, id in
+                    
+                    var number: Int = 0
+                    var percentage: Int = 0
+                    
+                    number = Int(message.string!) ?? 1
+                    let capacity = self.tappedCell.capacity
+                    percentage = Int(number * 100 / (capacity))
+                    
+                    if number < 0 {
+                        percentage = 0
                     }
                     
-                    else {
-                        let roomDataArray = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any] //Any型にキャスト
-                        let roomData = roomDataArray.map { (roomData) -> [String: Any] in
-                            return roomData as! [String: Any]
-                        }
-                        let Building = roomData[0] as AnyObject?
-                        let Building2 = Building?["South Building"] as AnyObject?
-                        let Rooms = Building2?[0] as AnyObject?
-                        let Rooms2 = Rooms?["rooms"] as AnyObject?
-                        //let SubCategory = Rooms?["subcategory"] as AnyObject?
-                        let Category = Rooms2?[0] as AnyObject?
-                        let Category2 = Category?[self.tappedCell.category] as AnyObject?
-                        let Room = Category2?[0] as AnyObject?
-                        let Room2 = Room?[self.tappedCell.name] as AnyObject?
-                        let selectedRoom = Room2?[0] as AnyObject?
+                    if number < 5 {
                         
-                        let roomName = selectedRoom?["roomName"]
-                        let roomDetail = selectedRoom?["roomDetail"]
-                        let capacity = selectedRoom?["capacity"]
-                        let desks = selectedRoom?["desks"]
-                        let monitors = selectedRoom?["monitors"]
-                        
-                        if roomName != nil {
-                            DestViewController.roomName = roomName! as? String
-                            DestViewController.roomDetailTextView = roomDetail! as? String
-                            print(roomName! as? String ?? "nil")
+                    }
+                    
+                    UIView.animate(withDuration: 1.0) {
+                        if percentage >= 0 {
+                            DestViewController.detailCircle.value = CGFloat(percentage)
                         } else {
-                            DestViewController.roomName = "nil"
-                            DestViewController.roomDetailTextView = "nil"
-                        }
-                        
-                        if capacity != nil {
-                            DestViewController.numCapacity = capacity! as? Int
-                            DestViewController.numDesks = desks! as? Int
-                            DestViewController.numMonitors = monitors! as? Int
-                        } else {
-                            DestViewController.numCapacity = 0
-                            DestViewController.numDesks = 0
-                            DestViewController.numMonitors = 0
-                        }
-                        
-                        //MARK: - Set up MQTT
-                        let hostmqttKUAS = "172.31.32.141"
-                        let hostmqttEWS = "192.168.1.111"
-                        let detailRoomClientID = self.tappedCell.name + String(ProcessInfo().processIdentifier)
-                        
-                        let roomMqtt = CocoaMQTT(clientID: detailRoomClientID, host: hostmqttKUAS, port: 1883)
-                        roomMqtt.autoReconnect = true
-                        _ = roomMqtt.connect()
-                        roomMqtt.didConnectAck = { mqtt, ack in
-                            let topic = selectedRoom?["topic"]! as? String
-                            
-                            if topic == nil {
-                                DestViewController.wifi = "Non_connection"
-                            }
-                            
-                            roomMqtt.subscribe(topic ?? "topic_ews")
-                            roomMqtt.didReceiveMessage = { mqtt, message, id in
-                                let number: Int = Int(message.string!) ?? 1
-                                let capacity = selectedRoom?["capacity"]! as? Int
-                                let percentage = Int(number * 100 / (capacity ?? 1))
-                                
-                                UIView.animate(withDuration: 1.0) {
-                                    if percentage >= 0 {
-                                        DestViewController.detailCircle.value = CGFloat(percentage)
-                                    } else {
-                                        DestViewController.detailCircle.value = 0
-                                    }
-                                }
-                                DestViewController.detailPercentLabel.text = "\(String(percentage))%"
-                                DestViewController.detailNumberLabel.text = "There are \(message.string!) people in the room."
-                                
-                                //change font and color
-                                if percentage > 100 {
-                                    DestViewController.detailCircle.progressColor = .purple
-                                    DestViewController.detailCircle.maxValue = CGFloat(percentage)
-                                    DestViewController.detailAllartLabel.text = "The number of people in this room exceeds the permissible capacity. Please move to another room now."
-                                    DestViewController.detailAllartLabel.textColor = .red
-                                    
-                                } else if percentage > 80  {
-                                    DestViewController.detailCircle.progressColor = .red
-                                    DestViewController.detailAllartLabel.text = " "
-                                    DestViewController.detailCircle.maxValue = 100
-                                    
-                                } else if percentage > 60  {
-                                    DestViewController.detailCircle.progressColor = .orange
-                                    DestViewController.detailAllartLabel.text = " "
-                                    DestViewController.detailCircle.maxValue = 100
-                                    
-                                } else if percentage > 40  {
-                                    DestViewController.detailCircle.progressColor = .yellow
-                                    DestViewController.detailAllartLabel.text = " "
-                                    DestViewController.detailCircle.maxValue = 100
-                                    
-                                } else if percentage > 20  {
-                                    DestViewController.detailCircle.progressColor = .green
-                                    DestViewController.detailAllartLabel.text = " "
-                                    DestViewController.detailCircle.maxValue = 100
-                                    
-                                } else {
-                                    DestViewController.detailCircle.progressColor = .systemTeal
-                                    DestViewController.detailAllartLabel.text = " "
-                                    DestViewController.detailCircle.maxValue = 100
-                                    
-                                }
-                            }
+                            DestViewController.detailCircle.value = 0
                         }
                     }
+                    DestViewController.detailPercentLabel.text = "\(String(percentage))%"
+                    DestViewController.numberLabel.text = "Less than \(String(number)) people in the room."
+                    
+                    //change font and color
+                    if percentage > 100 {
+                        DestViewController.detailCircle.progressColor = .purple
+                        DestViewController.detailCircle.maxValue = CGFloat(percentage)
+                        DestViewController.detailAllartLabel.text = "The number of people in this room exceeds the permissible capacity. Please move to another room now."
+                        DestViewController.detailAllartLabel.textColor = .red
+                        DestViewController.detailNumberLabel.text = "Very crowded😡"
+                        
+                    } else if percentage > 80  {
+                        DestViewController.detailCircle.progressColor = .red
+                        DestViewController.detailAllartLabel.text = " "
+                        DestViewController.detailCircle.maxValue = 100
+                        DestViewController.detailNumberLabel.text = "Quite crowded😠"
+                        
+                    } else if percentage > 60  {
+                        DestViewController.detailCircle.progressColor = .orange
+                        DestViewController.detailAllartLabel.text = " "
+                        DestViewController.detailCircle.maxValue = 100
+                        DestViewController.detailNumberLabel.text = "Relatively crowded😬"
+                        
+                    } else if percentage > 40  {
+                        DestViewController.detailCircle.progressColor = .yellow
+                        DestViewController.detailAllartLabel.text = " "
+                        DestViewController.detailCircle.maxValue = 100
+                        DestViewController.detailNumberLabel.text = "Little crowded🙂"
+                        
+                    } else if percentage > 20  {
+                        DestViewController.detailCircle.progressColor = .green
+                        DestViewController.detailAllartLabel.text = " "
+                        DestViewController.detailCircle.maxValue = 100
+                        DestViewController.detailNumberLabel.text = "Relatively vacant😉"
+                        
+                    } else {
+                        DestViewController.detailCircle.progressColor = .systemTeal
+                        DestViewController.detailAllartLabel.text = " "
+                        DestViewController.detailCircle.maxValue = 100
+                        DestViewController.detailNumberLabel.text = "Quite vacant😁"
+                        
+                    }
                 }
-                catch {
-                    DestViewController.roomName = "nil"
-                    DestViewController.roomDetailTextView = "nil"
-                    print(error)
-                }
-            })
-            task.resume()
+            }
+            //MARK: - API section
+//            let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
+//                do  {
+//                    if data == nil {
+//                        DestViewController.roomName = "nil"
+//                        DestViewController.roomDetailTextView = "nil"
+//                        DestViewController.numCapacity = 0
+//                        DestViewController.numDesks = 0
+//                        DestViewController.numMonitors = 0
+//                    }
+//
+//                    else {
+//                        let roomDataArray = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any] //Any型にキャスト
+//                        let roomData = roomDataArray.map { (roomData) -> [String: Any] in
+//                            return roomData as! [String: Any]
+//                        }
+//                        let Building = roomData[0] as AnyObject?
+//                        let Building2 = Building?["South Building"] as AnyObject?
+//                        let Rooms = Building2?[0] as AnyObject?
+//                        let Rooms2 = Rooms?["rooms"] as AnyObject?
+//                        //let SubCategory = Rooms?["subcategory"] as AnyObject?
+//                        let Category = Rooms2?[0] as AnyObject?
+//                        let Category2 = Category?[self.tappedCell.category] as AnyObject?
+//                        let Room = Category2?[0] as AnyObject?
+//                        let Room2 = Room?[self.tappedCell.name] as AnyObject?
+//                        let selectedRoom = Room2?[0] as AnyObject?
+//
+//                        let roomName = selectedRoom?["roomName"]
+//                        let roomDetail = selectedRoom?["roomDetail"]
+//                        let capacity = selectedRoom?["capacity"]
+//                        let desks = selectedRoom?["desks"]
+//                        let monitors = selectedRoom?["monitors"]
+//
+//                        if roomName != nil {
+//                            DestViewController.roomName = roomName! as? String
+//                            DestViewController.roomDetailTextView = roomDetail! as? String
+//                            print(roomName! as? String ?? "nil")
+//                        } else {
+//                            DestViewController.roomName = "nil"
+//                            DestViewController.roomDetailTextView = "nil"
+//                        }
+//
+//                        if capacity != nil {
+//                            DestViewController.numCapacity = capacity! as? Int
+//                            DestViewController.numDesks = desks! as? Int
+//                            DestViewController.numMonitors = monitors! as? Int
+//                        } else {
+//                            DestViewController.numCapacity = 0
+//                            DestViewController.numDesks = 0
+//                            DestViewController.numMonitors = 0
+//                        }
+//
+//                        //MARK: - Set up MQTT
+//                        //let hostMqtt = wifiSwitcher(sender: self.wifiSwitch)
+//                        //let hostMqtt = "172.31.32.141"
+//                        //let hostMqtt = "192.168.1.111"
+//                        let hostMqtt = "54.165.233.114"
+//                        let detailRoomClientID = self.tappedCell.name + String(ProcessInfo().processIdentifier)
+//                        let roomMqtt = CocoaMQTT(clientID: detailRoomClientID, host: hostMqtt, port: 8883)
+//                        roomMqtt.autoReconnect = true
+//                        _ = roomMqtt.connect()
+//                        roomMqtt.didConnectAck = { mqtt, ack in
+//                            let topic = self.tappedCell.topic
+//                            print("__________-------" + topic)
+//                            roomMqtt.subscribe(topic)
+//
+//                            roomMqtt.didReceiveMessage = { mqtt, message, id in
+//                                let number: Int = Int(message.string!) ?? 1
+//                                let capacity = selectedRoom?["capacity"]! as? Int
+//                                let percentage = Int(number * 100 / (capacity ?? 1))
+//
+//                                UIView.animate(withDuration: 1.0) {
+//                                    if percentage >= 0 {
+//                                        DestViewController.detailCircle.value = CGFloat(percentage)
+//                                    } else {
+//                                        DestViewController.detailCircle.value = 0
+//                                    }
+//                                }
+//                                DestViewController.detailPercentLabel.text = "\(String(percentage))%"
+//                                DestViewController.numberLabel.text = "\(String(number)) people"
+//                                DestViewController.detailNumberLabel.text = "There are \(message.string!) people in the room."
+//
+//                                //change font and color
+//                                if percentage > 100 {
+//                                    DestViewController.detailCircle.progressColor = .purple
+//                                    DestViewController.detailCircle.maxValue = CGFloat(percentage)
+//                                    DestViewController.detailAllartLabel.text = "The number of people in this room exceeds the permissible capacity. Please move to another room now."
+//                                    DestViewController.detailAllartLabel.textColor = .red
+//
+//                                } else if percentage > 80  {
+//                                    DestViewController.detailCircle.progressColor = .red
+//                                    DestViewController.detailAllartLabel.text = " "
+//                                    DestViewController.detailCircle.maxValue = 100
+//
+//                                } else if percentage > 60  {
+//                                    DestViewController.detailCircle.progressColor = .orange
+//                                    DestViewController.detailAllartLabel.text = " "
+//                                    DestViewController.detailCircle.maxValue = 100
+//
+//                                } else if percentage > 40  {
+//                                    DestViewController.detailCircle.progressColor = .yellow
+//                                    DestViewController.detailAllartLabel.text = " "
+//                                    DestViewController.detailCircle.maxValue = 100
+//
+//                                } else if percentage > 20  {
+//                                    DestViewController.detailCircle.progressColor = .green
+//                                    DestViewController.detailAllartLabel.text = " "
+//                                    DestViewController.detailCircle.maxValue = 100
+//
+//                                } else {
+//                                    DestViewController.detailCircle.progressColor = .systemTeal
+//                                    DestViewController.detailAllartLabel.text = " "
+//                                    DestViewController.detailCircle.maxValue = 100
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//                catch {
+//                    DestViewController.roomName = "nil"
+//                    DestViewController.roomDetailTextView = "nil"
+//                    print(error)
+//                }
+//            })
+//            task.resume()
             
-            //DestViewController.roomName = tappedCell.name
+            DestViewController.roomName = tappedCell.name
             DestViewController.detailImageViewName = tappedCell.imageName
-            //DestViewController.roomDetailTextView = tappedCell.roomDetail
+            DestViewController.roomDetailTextView = tappedCell.roomDetail
             DestViewController.floorMap = tappedCell.floorMaps
-            //DestViewController.numCapacity = tappedCell.capacity
-            //DestViewController.numDesks = tappedCell.desks
-            //DestViewController.numMonitors = tappedCell.monitors
+            DestViewController.numCapacity = tappedCell.capacity
+            DestViewController.numDesks = tappedCell.desks
+            DestViewController.numMonitors = tappedCell.monitors
             
         }
         

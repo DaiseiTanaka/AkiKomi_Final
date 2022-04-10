@@ -13,6 +13,7 @@ struct CollectionViewCellModel {
     var category: String
     var floorMaps: String
     var name: String
+    var topic: String
     var imageName: String
     var roomDetail: String
     var capacity: Int

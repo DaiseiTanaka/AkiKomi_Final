@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +26,11 @@
                                     <constraint firstAttribute="width" constant="115" id="qoF-to-6sA"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwB-dX-mXF">
-                                <rect key="frame" x="20" y="53.5" width="110" height="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GId-Dg-gpe">
+                                <rect key="frame" x="20" y="40" width="110" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="KQ0-gm-Gvt"/>
+                                    <constraint firstAttribute="height" constant="50" id="fls-g3-yIp"/>
+                                    <constraint firstAttribute="width" constant="110" id="wmC-zN-T32"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,12 +38,26 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="2" height="2"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- people" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwB-dX-mXF">
+                                <rect key="frame" x="0.0" y="70" width="150" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Atp-Gj-Bb7"/>
+                                    <constraint firstAttribute="width" constant="150" id="E89-HB-xXV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" systemColor="systemGray4Color"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jwB-dX-mXF" firstAttribute="centerX" secondItem="Zci-Ys-DXT" secondAttribute="centerX" id="5qu-Bi-haP"/>
+                            <constraint firstItem="GId-Dg-gpe" firstAttribute="centerX" secondItem="Zci-Ys-DXT" secondAttribute="centerX" id="7ms-VC-61l"/>
+                            <constraint firstItem="GId-Dg-gpe" firstAttribute="top" secondItem="Zci-Ys-DXT" secondAttribute="top" constant="40" id="SwD-W6-1WP"/>
+                            <constraint firstItem="jwB-dX-mXF" firstAttribute="top" secondItem="Zci-Ys-DXT" secondAttribute="top" constant="70" id="Yxl-mC-YXO"/>
                             <constraint firstItem="rqT-uY-sCI" firstAttribute="centerY" secondItem="Zci-Ys-DXT" secondAttribute="centerY" id="aAb-Gt-p3k"/>
-                            <constraint firstItem="jwB-dX-mXF" firstAttribute="centerY" secondItem="Zci-Ys-DXT" secondAttribute="centerY" id="kfa-iV-Aeb"/>
+                            <constraint firstItem="jwB-dX-mXF" firstAttribute="centerX" secondItem="Zci-Ys-DXT" secondAttribute="centerX" id="u2Z-rw-Wle"/>
                             <constraint firstItem="rqT-uY-sCI" firstAttribute="centerX" secondItem="Zci-Ys-DXT" secondAttribute="centerX" id="xFd-Xl-Cqy"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -94,7 +109,8 @@
                 <outlet property="imageView" destination="rqT-uY-sCI" id="aCt-38-QsW"/>
                 <outlet property="miniCircle" destination="Zci-Ys-DXT" id="W99-L5-ayc"/>
                 <outlet property="nameLabel" destination="QiW-qc-bED" id="e31-1r-S2c"/>
-                <outlet property="percentageLabel" destination="jwB-dX-mXF" id="OFk-uI-n23"/>
+                <outlet property="numberLabelCell" destination="jwB-dX-mXF" id="3m8-iP-7LC"/>
+                <outlet property="percentageLabel" destination="GId-Dg-gpe" id="G8u-nf-fya"/>
             </connections>
             <point key="canvasLocation" x="192.75362318840581" y="174.77678571428569"/>
         </collectionViewCell>
@@ -105,6 +121,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
