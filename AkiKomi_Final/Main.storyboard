@@ -144,8 +144,8 @@
                                                     <constraint firstAttribute="height" constant="230" id="xHA-02-zYh"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="・Contact with us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgF-Tq-4fZ">
-                                                <rect key="frame" x="36" y="1332.5" width="200" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgF-Tq-4fZ">
+                                                <rect key="frame" x="36" y="1332.5" width="200" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="Hvs-YG-e9g"/>
                                                 </constraints>
@@ -154,7 +154,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" If you have any comment or request, do not hesitate to email or DM for us." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QG5-tN-5Oc">
-                                                <rect key="frame" x="45.5" y="1361" width="323" height="45"/>
+                                                <rect key="frame" x="45.5" y="1340.5" width="323" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="He3-aV-O6C"/>
                                                     <constraint firstAttribute="width" constant="323" id="b4Q-Z1-OvU"/>
@@ -164,7 +164,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="email:    akikomi.kuas@icloud.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZtR-4N-gOo">
-                                                <rect key="frame" x="45" y="1414" width="324" height="35"/>
+                                                <rect key="frame" x="45" y="1393.5" width="324" height="35"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="324" id="BWF-IA-fxw"/>
@@ -233,6 +233,13 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzy-BN-gXZ">
+                                                <rect key="frame" x="20" y="1307" width="140" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="・Contact with us"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -350,6 +357,7 @@
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="gear" catalog="system" id="ejy-fp-nsv">
+                                <color key="tintColor" systemColor="systemGray5Color"/>
                                 <connections>
                                     <segue destination="iAy-iM-FLx" kind="show" id="hWO-Pl-aNZ"/>
                                 </connections>
@@ -1329,6 +1337,9 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

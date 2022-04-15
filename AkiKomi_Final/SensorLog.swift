@@ -136,7 +136,7 @@ class sensorLog: UIViewController,UITableViewDelegate,UITableViewDataSource {
             cell.sumText1.backgroundColor = .cyan
         }
         
-        if sum2 >= 0 {
+        if sum2 > 0 {
             cell.sumText2.backgroundColor = .orange
         } else if sum2 == 0 {
             cell.sumText2.backgroundColor = .systemGray5
@@ -144,15 +144,15 @@ class sensorLog: UIViewController,UITableViewDelegate,UITableViewDataSource {
             cell.sumText2.backgroundColor = .cyan
         }
         
-        if sum3 >= 0 {
+        if sum3 > 0 {
             cell.sumText3.backgroundColor = .orange
-        } else if sum1 == 0 {
+        } else if sum3 == 0 {
             cell.sumText3.backgroundColor = .systemGray5
         } else {
             cell.sumText3.backgroundColor = .cyan
         }
         
-        if sum4 >= 0 {
+        if sum4 > 0 {
             cell.sumText4.backgroundColor = .orange
         } else if sum4 == 0 {
             cell.sumText4.backgroundColor = .systemGray5
@@ -338,7 +338,8 @@ class sensorLog: UIViewController,UITableViewDelegate,UITableViewDataSource {
     private var firstNum: Int = 0
     
     private func setUpMQTT() {
-        let host = "54.165.233.114"
+        //let host = "54.165.233.114"
+        let host = "34.196.149.97"
         
         ClientID = "mqtt1" + String(ProcessInfo().processIdentifier)
         let mqttSensor = CocoaMQTT(clientID: ClientID, host: host, port: 8883)

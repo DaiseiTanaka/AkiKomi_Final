@@ -308,7 +308,8 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
             //let hostMqtt = wifiSwitcher(sender: self.wifiSwitch)
             //let hostMqtt = "172.31.32.141"
             //let hostMqtt = "192.168.1.111"
-            let hostMqtt = "54.165.233.114"
+            //let hostMqtt = "54.165.233.114"
+            let hostMqtt = "34.196.149.97"
             let detailRoomClientID = self.tappedCell.name + String(ProcessInfo().processIdentifier)
             let roomMqtt = CocoaMQTT(clientID: detailRoomClientID, host: hostMqtt, port: 8883)
             roomMqtt.autoReconnect = true

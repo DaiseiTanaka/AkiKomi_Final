@@ -92,7 +92,8 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, U
             cell.nameLabel.text = self.rowWhithRooms?[indexPath.row].name
             //MARK: - API section
 
-            let hostMqtt = "54.165.233.114"
+            //let hostMqtt = "54.165.233.114"
+            let hostMqtt = "34.196.149.97"
             let clientID = String(self.rowWhithRooms?[indexPath.item].imageName ?? "connected_error!!") + String(ProcessInfo().processIdentifier)
             let roomMqtt = CocoaMQTT(clientID: clientID, host: hostMqtt, port: 8883)
             roomMqtt.autoReconnect = true
