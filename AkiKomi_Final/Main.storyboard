@@ -421,7 +421,7 @@
                                                             <constraint firstAttribute="width" constant="205" id="Ga6-54-yNP"/>
                                                             <constraint firstAttribute="height" constant="75" id="LoL-xq-GbS"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="66"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="67"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
